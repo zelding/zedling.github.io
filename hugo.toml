@@ -1,0 +1,4 @@
+baseURL = 'https://zelding.github.io/'
+languageCode = 'en-us'
+title = 'Kristof Dekany'
+theme = 'ananke'
