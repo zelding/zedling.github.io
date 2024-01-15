@@ -1,7 +1,4 @@
 +++
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
-date = {{ .Date }}
+header_text = '&&'
 +++
-
-Hi
-===
