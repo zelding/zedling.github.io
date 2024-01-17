@@ -8,4 +8,4 @@ subtitle_2: UX és design guru
 subtitle_3: backend fejlesztő vagyok.
 ---
 
-## Üdvözöllek az oldalmon!
+## Üdvözöllek az oldalamon!
