@@ -1,0 +1,15 @@
+{{ define "header" }}
+    {{ partial "page-header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+    <article class="center v-mid cf pv5 measure-wide-l">
+      <h1 class="bg-washed-red ph3 pv3">{{ i18n "error_message" }}</h1>
+    </article>
+
+    <section class="center v-mid cf pv5 measure-wide-l">
+        <a href="{{ .Site.Home.RelPermalink }}" class="f3 fw2 hover-white no-underline white-90 dib">
+            {{ i18n "back_to_home" }}
+        </a>
+    </section>
+{{ end }}

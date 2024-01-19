@@ -3,14 +3,14 @@ languageCode = 'en-us'
 title = 'Kristof Dekany'
 theme = 'ananke'
 resourceDir = "../resources"
-
 DefaultContentLanguage = "en"
-SectionPagesMenu = "main"
-Paginate = 3 # this is set low for demonstrating with dummy content. Set to a higher number
+Paginate = 10
 googleAnalytics = ""
-enableRobotsTXT = true
+enableRobotsTXT = false
+enableGitInfo = true
 
-#sectionPagesMenu = 'main'
+[markup.goldmark.parser]
+    attribute = true
 
 [languages]
     [languages.en]

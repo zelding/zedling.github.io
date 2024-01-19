@@ -1,0 +1,11 @@
+<article class="flex-l flex-wrap justify-between mw8 center ph3 mb2-ns">
+    <header class="mt4 w-100">
+        <h1 class="f1 mt3 mb1">{{- .Title -}}</h1>
+
+        {{ partial "quote.html" .Description }}
+    </header>
+
+    <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "dejavu"}} f4 nested-links {{ $.Param "text_color" | default "mid-gray" }} {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }}">
+        {{- .Content -}}
+    </div>
+</article>

@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article class="pa3 pa4-ns nested-copy-line-height">
+
+    <section class="flex-ns flex-wrap justify-around mt1">
+        {{ range .Paginator.Pages }}
+        <div class="relative w-100 w-40-l mb1 ml1-l bg-white">
+            {{ .Render "summary" }}
+        </div>
+        {{ end }}
+    </section>
+
+    {{ with .Site.GetPage "/cv" }}
+    <div class="pv5 mw8 ml6">
+        {{ partial "lastmod-side.html" . }}
+    </div>
+    {{ end }}
+</article>
+{{ end }}

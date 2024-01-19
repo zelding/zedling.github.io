@@ -1,0 +1,11 @@
+{{ define "main" }}
+    <div class="flex-l mt2 mw8 center comingsoon">
+        <section class="pv5 ph1 v-mid measure-wide-l">
+            {{ .Content }}
+        </section>
+
+        <div class="pv5 mw8 ml6">
+            {{ partial "lastmod-side.html" . }}
+        </div>
+    </div>
+{{ end }}

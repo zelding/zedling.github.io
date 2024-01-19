@@ -1,14 +1,5 @@
 {{ define "main" }}
-    <main aria-role="main">
-        <header class="homepage-header tc-l light-silver">
-            <h1 class="">{{ .Params.my_name }}</h1>
-            <span class="subtitle">{{ .Params.subtitle }}</span>
-            <span class="subtitle strike">{{ .Params.subtitle_2 }}</span>
-            <span class="subtitle">{{ .Params.subtitle_3 }}</span>
-        </header>
-        <div class="homepage-content tc-l light-silver">
-            <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
-            {{ .Content }}
-        </div>
-    </main>
+    <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy {{ $.Param "text_color" | default "mid-gray" }}">
+        {{ .Content }}
+    </article>
 {{ end }}
