@@ -1,5 +1,6 @@
 ---
-title: Home
+title: Kristof Dekany
+description: Online CV
 header_text: o7 
 completion: 100
 sitemap:

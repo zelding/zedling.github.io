@@ -18,3 +18,9 @@ studies:
 
 prev_workplaces:
     other: Relevant previous workplaces
+
+en:
+    other: english
+
+hu:
+    other: hungarian

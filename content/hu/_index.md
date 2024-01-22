@@ -1,5 +1,6 @@
 ---
-title: Kezdőlap
+title: Dékány Kristóf
+description: Online CV
 header_text: o/
 my_name: Dékány Kristóf
 completion: 100

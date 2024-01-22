@@ -18,3 +18,9 @@ studies:
 
 prev_workplaces:
     other: Előző releváns munkahelyek
+
+en:
+    other: angol
+
+hu:
+    other: magyar

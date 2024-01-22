@@ -76,3 +76,7 @@ enableGitInfo = true
     [caches.getresource]
         dir = ":cacheDir/:project"
         maxage = '1h'
+
+[services]
+    [services.googleAnalytics]
+        ID = 'G-40VRML108Z'
