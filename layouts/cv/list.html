@@ -1,18 +1,41 @@
 {{ define "main" }}
 <article class="pa3 pa4-ns nested-copy-line-height">
 
+    <section class="flex-ns flex-wrap mv4 bg-white-80">
+        {{ .Content }}
+
+        <dl class="lh-title pa4 mt0">
+            {{ range $date, $text := .Params.studies }}
+            <dt class="f6 b">{{ $date }}</dt>
+            <dd class="ml0">{{ $text.name }} - {{ $text.subject }}</dd>
+            {{ end }}
+        </dl>
+    </section>
+
     <section class="flex-ns flex-wrap justify-around mt1">
         {{ range .Paginator.Pages }}
-        <div class="relative w-100 w-40-l mb1 ml1-l bg-white">
+        <div class="relative w-100 w-40-l mb1 ml1-l bg-white-80">
             {{ .Render "summary" }}
         </div>
         {{ end }}
     </section>
 
+    {{ .Scratch.Set "wordCount" 0 }}
+    {{ .Scratch.Set "lastMod" nil }}
+
     {{ with .Site.GetPage "/cv" }}
-    <div class="pv5 mw8 ml6">
-        {{ partial "lastmod-side.html" . }}
-    </div>
+        {{ $wordCount := 0 }}
+        {{ $lastMod := 0 }}
+
+        {{ range .Pages }}
+            {{ $.Scratch.Add "wordCount" .WordCount }}
+            {{ $.Scratch.Set "lastMod" (cond (gt .Lastmod ($.Scratch.Get "lastMod")) .Lastmod ($.Scratch.Get "lastMod")) }}
+            {{ $lastMod := cond (gt .Lastmod $lastMod) .Lastmod $lastMod }}
+        {{ end }}
+
+        <div class="flex-ns flex-wrap justify-around pa3">
+            {{ partial "lastmod-side.html" (dict "WordCount" (.Scratch.Get "wordCount") "Lastmod" (.Scratch.Get "lastMod") "Completion" ($.Param "completion")) }}
+        </div>
     {{ end }}
 </article>
 {{ end }}
