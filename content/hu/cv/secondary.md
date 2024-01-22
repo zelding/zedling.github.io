@@ -2,6 +2,8 @@
 title: Másodrendű ismeretek
 description: Hobbik vagy még tanulom
 weight: 20
+sitemap:
+  priority: -1
 ---
 
 - Rabbitmq

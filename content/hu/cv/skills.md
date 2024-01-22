@@ -2,6 +2,8 @@
 title: Ismeretek
 description: Ezekkel már dolgoztam 
 weight: 10
+sitemap:
+  priority: -1
 ---
 
 - PHP, MySQL, Composer

@@ -22,3 +22,7 @@ body.dejavu {
 .comingsoon {
     justify-content: center;
 }
+
+.green-60 {
+    color: rgba(25, 169, 116, .6);
+}

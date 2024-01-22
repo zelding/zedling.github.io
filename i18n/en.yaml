@@ -1,5 +1,5 @@
 wordCount:
-    other: Word count is {{ .WordCount }}
+    other: 'Word count is: {{ .WordCount }}'
 
 last_update:
     other: "Last updated:"
@@ -8,7 +8,7 @@ error_message:
     other: This is not the page you are looking for
 
 completion:
-    other: Page completion {{ .Param "completion" }}%
+    other: 'Page completion: {{ .Completion }}%'
 
 back_to_home:
     other: back to Home

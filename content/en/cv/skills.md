@@ -2,6 +2,8 @@
 title: Skills
 description: I've worked with these 
 weight: 10
+sitemap:
+  priority: -1
 ---
 
 - PHP, MySQL, Composer

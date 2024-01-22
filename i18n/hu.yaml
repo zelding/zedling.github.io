@@ -1,5 +1,5 @@
 wordCount:
-    other: A szavak száma {{ .WordCount }}
+    other: 'A szavak száma: {{ .WordCount }}'
 
 last_update:
     other: "Utoljára frissítve:"
@@ -8,7 +8,7 @@ error_message:
     other: Nem ezt az oldalt keresed
 
 completion:
-    other: Elkészült {{ .Param "completion" }}%
+    other: 'Elkészült: {{ .Completion }}%'
 
 back_to_home:
     other: vissza a kezdőlapra

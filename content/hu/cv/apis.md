@@ -2,6 +2,8 @@
 title: APIk
 description: Rest, OAuth, JWT, SOAP, custom 
 weight: 15
+sitemap:
+  priority: -1
 ---
 
 - jsonapi / openapi / swagger

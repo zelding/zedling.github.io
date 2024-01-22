@@ -2,6 +2,8 @@
 title: Szívesen megtanulnám
 description: vagy dolgoznék velük idővel
 weight: 30
+sitemap:
+  priority: -1
 ---
 
 - Rust

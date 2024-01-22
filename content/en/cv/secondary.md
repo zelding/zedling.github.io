@@ -2,6 +2,8 @@
 title: Secondary skills
 description: Hobbies or still learning
 weight: 20
+sitemap:
+  priority: -1
 ---
 
 - Rabbitmq
@@ -15,6 +17,8 @@ weight: 20
     - Godot
 - Cellular automatons
 - Haskell
+- Basic, Pascal
+- Lua
 - Vue
 - Laravel
 - TCP / UDP / firewalls, networks (lan parties)
