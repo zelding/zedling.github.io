@@ -1,5 +1,6 @@
 ---
 title: Motivációs levél
+url: cl
 header_text: Motivációs levél
 description: miért választanál engem, miért választanálak titeket
 translationKey: cl

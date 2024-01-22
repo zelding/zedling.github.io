@@ -1,5 +1,6 @@
 ---
 title: Cover Letter
+url: cl
 header_text: Cover Letter
 description: why would you choose me, why would I choose you
 translationKey: cl
