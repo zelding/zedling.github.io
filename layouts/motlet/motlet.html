@@ -5,7 +5,7 @@
         </section>
 
         <div class="pv5 mw8 ml6">
-            {{ partial "lastmod-side.html" . }}
+            {{ partial "lastmod-side.html" (dict "WordCount" .WordCount "Lastmod" .Lastmod "Completion" (.Param "completion")) }}
         </div>
     </div>
 {{ end }}

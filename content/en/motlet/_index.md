@@ -1,9 +1,9 @@
 ---
 title: Cover Letter
 header_text: Cover Letter
+description: why would you choose me, why would I choose you
 translationKey: cl
-completion: 0
-draft: true
+completion: 5
 sitemap:
     changefreq: yearly
     priority: 0.6
