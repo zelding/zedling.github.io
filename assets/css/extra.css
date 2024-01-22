@@ -6,6 +6,14 @@
     url("../fonts/DejaVuSansMono.ttf") format("truetype")
 }
 
+@font-face {
+    font-family: "DejaVu";
+    font-style: italic;
+    font-weight: 300;
+    src: local("Open"),
+    url("../fonts/DejaVuSansMono-Oblique.ttf") format("truetype")
+}
+
 body.dejavu {
     font-family: "DejaVu", ui-monospace;
 }

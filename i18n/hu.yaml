@@ -12,3 +12,9 @@ completion:
 
 back_to_home:
     other: vissza a kezdőlapra
+
+studies:
+    other: Tanulmányok
+
+prev_workplaces:
+    other: Előző releváns munkahelyek

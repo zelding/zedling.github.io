@@ -6,12 +6,12 @@ sitemap:
   priority: -1
 ---
 
-- jsonapi / openapi / swagger
-- payments
+- json:api / OpenApi / Swagger
+- Payment systems:
   - Cosmo payments, Paxum, ePay Services, Epayments, Skrill, Braintree, Barion
   - Bitsafe, Directa24, UBS-ISO, Crypto (btc, usdc, ageur)
 - Lovense, Kiiroo
-- Various exchange rate providers, nist (time)
+- Various exchange rate providers
 - WhatsApp
 - Various affiliate, whitelabel and marketing "solutions"
 - Digital ID / KYC

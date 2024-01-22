@@ -12,4 +12,4 @@ sitemap:
 - Mathlab / LateX
     - Juniper
 - Minikube, k3s, k8s, openshift
-- TypeScript maybe
+- TypeScript esetleg

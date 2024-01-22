@@ -12,3 +12,9 @@ completion:
 
 back_to_home:
     other: back to Home
+
+studies:
+    other: Studies
+
+prev_workplaces:
+    other: Relevant previous workplaces

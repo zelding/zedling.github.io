@@ -1,15 +1,49 @@
 {{ define "main" }}
 <article class="pa3 pa4-ns nested-copy-line-height">
 
-    <section class="flex-ns flex-wrap mv4 bg-white-80">
-        {{ .Content }}
+    <section class="flex-ns flex-wrap justify-around mv4 bg-white-80">
+        <div>
+            <h3>{{ i18n "studies" }}</h3>
 
-        <dl class="lh-title pa4 mt0">
-            {{ range $date, $text := .Params.studies }}
-            <dt class="f6 b">{{ $date }}</dt>
-            <dd class="ml0">{{ $text.name }} - {{ $text.subject }}</dd>
-            {{ end }}
-        </dl>
+            <dl class="lh-title pa4 mt0">
+                {{ range $date, $data := .Params.studies }}
+                <dt class="f6 b">{{ $date }}</dt>
+                <dd class="ml0 mb1">
+                    <span class="flex flex-wrap justify-between">
+                        {{- $data.name }} - {{ $data.subject -}}
+                        <a class="link dib link-transition pl1" target="_blank"
+                           hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
+                           href="{{ $data.url }}">Link
+                            {{- partial "new-window-icon.html" . -}}
+                        </a>
+                    </span>
+
+                    <span class="i">{{ $data.stuff }}</span>
+                </dd>
+                {{ end }}
+            </dl>
+        </div>
+
+        <div>
+            <h3>{{ i18n "prev_workplaces" }}</h3>
+
+            <dl class="lh-title pa4 mt0">
+                {{ range $date, $data := .Params.jobs }}
+                    <dt class="f6 b">{{ $date }}</dt>
+                    <dd class="ml0 mb1">
+                        <span class="flex flex-wrap justify-between">
+                            {{- $data.name }} - {{ $data.role -}}
+                            <a class="link dib link-transition pl1" target="_blank"
+                               hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
+                               href="{{ $data.url }}">Link
+                                {{- partial "new-window-icon.html" . -}}
+                            </a>
+                        </span>
+                        <span class="i">{{ $data.stuff }}</span>
+                    </dd>
+                {{ end }}
+            </dl>
+        </div>
     </section>
 
     <section class="flex-ns flex-wrap justify-around mt1">

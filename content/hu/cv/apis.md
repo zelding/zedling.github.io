@@ -6,8 +6,8 @@ sitemap:
   priority: -1
 ---
 
-- jsonapi / openapi / swagger
-- Online fizetés
+- json:api / OpenApi / Swagger
+- Online fizetés:
     - Cosmo payments, Paxum, ePay Services, Epayments, Skrill, Braintree, Barion
     - Bitsafe, Directa24, UBS-ISO, Crypto (btc, usdc, ageur)
 - Lovense, Kiiroo
