@@ -2,7 +2,7 @@
 title: Motivációs levél
 url: cl
 header_text: Motivációs levél
-description: miért választanál engem, miért választanálak titeket
+description: miért választanátok engem, miért választanálak titeket
 translationKey: cl
 completion: 5
 sitemap:
