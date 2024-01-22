@@ -8,6 +8,7 @@ sitemap:
 
 - PHP, MySQL, Composer
     - Symfony (2-6), Doctrine ORM/DBAL, Twig (1-3)
+    - PHPUnit
     - PHPStorm, DBeaver
 - Gitlab
     - CI/CD, Docker, Sonarqube, Sentry

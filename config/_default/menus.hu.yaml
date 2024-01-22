@@ -3,5 +3,5 @@ main:
       pageRef: /cv
       weight: 20
     - name: Motivációs levél
-      pageRef: /motlet
+      pageRef: /cl
       weight:  30

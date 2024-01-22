@@ -3,5 +3,5 @@ main:
       pageRef: /cv
       weight: 20
     - name: CL
-      pageRef: /motlet
+      pageRef: /cl
       weight:  30
