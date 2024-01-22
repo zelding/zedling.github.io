@@ -50,6 +50,10 @@ enableGitInfo = true
     url = "https://www.linkedin.com/in/kristof-dekany/"
 
 [[params.ananke_socials]]
+    name = "sourceforge"
+    url = "https://sourceforge.net/u/zedling/profile/"
+
+[[params.ananke_socials]]
     name = "youtube"
     url = "https://www.youtube.com/channel/UCccmWYLb5gCh1t5GeTDliNw"
 
