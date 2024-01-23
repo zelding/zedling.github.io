@@ -29,7 +29,7 @@ consent_prefix:
     other: Szeretném használni a
 
 consent_suffix:
-    other: -et, hogy lássam hányan érdeklődnek irántam.
+    other: -et, hogy lássam ha érdeklődnek.
 
 revoke_cookies:
     other: Süti beállítások visszavonása

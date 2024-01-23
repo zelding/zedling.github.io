@@ -29,7 +29,7 @@ consent_prefix:
     other: I would like to use
 
 consent_suffix:
-    other: to see if people are interested in my site.
+    other: to see if people are interested.
 
 revoke_cookies:
     other: Revoke cookie settings
