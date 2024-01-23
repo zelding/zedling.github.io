@@ -1,9 +1,9 @@
 {{ $langData := (index .Site.Data .Site.Language.Lang ) }}
-
+{{ $gaUrl := "https://support.google.com/analytics/answer/6004245?hl=" }}
 <div id="consent-notice">
     <span>{{ i18n "consent_prefix" }} <a class="manage-consent"
                                          target="_blank" rel="noopener"
-                                         href="https://support.google.com/analytics/answer/6004245?hl={{ .Site.Language.Lang }}">Google Analytics 4</a> {{ i18n "consent_suffix" }}</span>
+                                         href="{{ $gaUrl }}{{ .Site.Language.Lang }}">Google Analytics 4</a> {{ i18n "consent_suffix" }}</span>
     <button class="btn manage-consent">{{ i18n "details" }}</button>
     <button class="btn deny-consent">{{ i18n "deny" }}</button>
     <button class="btn approve-consent">{{ i18n "allow" }}</button>
