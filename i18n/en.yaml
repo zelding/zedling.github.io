@@ -45,3 +45,6 @@ allow:
 
 allow_selected:
     other: Allow selected
+
+the_button:
+    other: This is a button

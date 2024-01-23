@@ -45,3 +45,6 @@ allow:
 
 allow_selected:
     other: Kiválasztott engedélyezése
+
+the_button:
+    other: Ez egy gomb
