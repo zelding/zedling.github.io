@@ -1,0 +1,9 @@
+items:
+    - title: Google Analytics 4
+      description: It will show me an approximate ip-location (your country or your VPNs country) based on where this site was opened, and some extra navigation data, like menu clicks and how far did you scroll down on the pages. I've disabled everything I could find in the control panel, that would allow Google to give this data to others.
+      cookies: If you accept it, the site will save one single cookie, that will store your choice for a month, which you can revoke any time, by clicking the link in the center of the footer.
+      addendum: In a true games fashion, I just want to see the number go big.
+      addendum2: In a true geek fashion, I desire the STATS.
+      is_functional: false
+      script_file: https://www.googletagmanager.com/gtag/js?id=
+      id: G-40VRML108Z

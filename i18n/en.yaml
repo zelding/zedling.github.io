@@ -24,3 +24,24 @@ en:
 
 hu:
     other: hungarian
+
+consent_prefix:
+    other: I would like to use
+
+consent_suffix:
+    other: to see if people are interested in my site.
+
+revoke_cookies:
+    other: Revoke cookie settings
+
+details:
+    other: Details
+
+deny:
+    other: Deny
+
+allow:
+    other: Allow
+
+allow_selected:
+    other: Allow selected

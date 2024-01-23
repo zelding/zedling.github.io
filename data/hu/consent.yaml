@@ -1,0 +1,9 @@
+items:
+    - title: Google Analytics 4
+      description: Mutatni fogja az országot, ahonnan a bőngésződ (vagy a VPN-ed) megnyitja az oldalamat, meg még egy-két navigációs dolgot, mint például menüpontokra kattintást vagy hogy meddig görgettél le egy adott aloldalon. Mindenkt kikapcsoltam, amit csak találtam a belállítások között, ami megengedné a goggle-nek hogy továbadja az adatokat.
+      cookies: Ha elfogadod, az oldal készíteni fog egy egyszerű sütit, ami a döntésedtet tárolja egy hónapig, amit bármikor visszavonhatsz a lábléc közepén lévő linkre kattintva.
+      addendum: Igaz gémer módra, csak szeretném látni, ahogy nőnek a számok.
+      addendum2: Igaz kocka móda, kívánom a statokat.
+      is_functional: false
+      script_file: https://www.googletagmanager.com/gtag/js?id=
+      id: G-40VRML108Z

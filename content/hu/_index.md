@@ -9,6 +9,6 @@ sitemap:
     priority: 1
 ---
 
-###### Ahogy az nyilvánvalóan látszik, egy ~~UX and design guru~~  backend fejlesztő vagyok.
+###### Ahogy az nyilvánvalóan látszik, egy ~~UX és design guru~~  backend fejlesztő vagyok.
 
 ## Üdvözöllek az oldalamon!

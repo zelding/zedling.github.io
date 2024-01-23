@@ -24,3 +24,24 @@ en:
 
 hu:
     other: magyar
+
+consent_prefix:
+    other: Szeretném használni a
+
+consent_suffix:
+    other: -et, hogy lássam hányan érdeklődnek irántam.
+
+revoke_cookies:
+    other: Süti beállítások visszavonása
+
+details:
+    other: Részletek
+
+deny:
+    other: Ne!
+
+allow:
+    other: Oké
+
+allow_selected:
+    other: Kiválasztott engedélyezése

@@ -10,4 +10,4 @@ sitemap:
     priority: 0.6
 ---
 
-# Hamarosan { .bg-washed-blue .pv1 .ph2 }
+# Hamarosan { .pv1 }
