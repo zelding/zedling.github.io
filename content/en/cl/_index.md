@@ -10,4 +10,4 @@ sitemap:
     priority: 0.6
 ---
 
-# Coming soon { .bg-washed-blue .pv1 .ph2 }
+# Coming soon { .pv1 .mni }

@@ -1,7 +1,7 @@
 @font-face {
     font-family: "DejaVu";
     font-style: normal;
-    font-weight: 100 1000;
+    font-weight: 300 500;
     src: local("Open"),
     url("../fonts/DejaVuSansMono.ttf") format("truetype")
 }
@@ -9,7 +9,7 @@
 @font-face {
     font-family: "DejaVu";
     font-style: italic;
-    font-weight: 100 1000;
+    font-weight: 300 500;
     src: local("Open"),
     url("../fonts/DejaVuSansMono-Oblique.ttf") format("truetype")
 }
