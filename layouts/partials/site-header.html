@@ -2,11 +2,11 @@
     <div class="pb3-m pb6-l {{ .Site.Params.background_color_class | default "bg-black" }}">
         {{ partial "site-navigation.html" . }}
         <div class="tc pv3 ph3 ph4-ns">
-            <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+            <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title {{ with .Params.bzz.h1 }}{{ range $i := . }}{{ $i }}{{ end }}{{ end }}">
                 {{ .Params.header_text | default .Site.Title }}
             </h1>
             {{ with .Params.description }}
-                <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+                <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4 {{ with $.Params.bzz.h2 }}{{ range $i := . }}{{ $i }} {{ end }}{{ end }}">
                     {{ . }}
                 </h2>
             {{ end }}

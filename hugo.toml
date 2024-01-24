@@ -60,6 +60,9 @@ enableGitInfo = true
     [[build.cacheBusters]]
         source = 'assets/.*\.(.*)$'
         target = '$1'
+    [[build.cacheBusters]]
+        source = 'static/icons/.*\.(.*)$'
+        target = '$1'
 
 [outputs]
     home    = ["HTML"]

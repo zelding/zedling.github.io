@@ -1,7 +1,7 @@
 @font-face {
     font-family: "DejaVu";
     font-style: normal;
-    font-weight: 300;
+    font-weight: 100 1000;
     src: local("Open"),
     url("../fonts/DejaVuSansMono.ttf") format("truetype")
 }
@@ -9,7 +9,7 @@
 @font-face {
     font-family: "DejaVu";
     font-style: italic;
-    font-weight: 300;
+    font-weight: 100 1000;
     src: local("Open"),
     url("../fonts/DejaVuSansMono-Oblique.ttf") format("truetype")
 }
@@ -45,8 +45,8 @@ body.dejavu {
 
 .bzz {
     font-family: "DejaVu", monospace;
-    transition: all 5s;
-    transition-timing-function: steps(5, jump-both);
+    transition: all 1s;
+    transition-timing-function: steps(1, jump-both);
 }
 
 .bzz:active, .bzz.z {
@@ -56,10 +56,32 @@ body.dejavu {
 
 .rich {
     font-family: "DejaVu", monospace;
-    transition: all 5s;
-    transition-timing-function: steps(5, jump-both);
+    transition: all 1s;
+    transition-timing-function: steps(1, jump-both);
 }
 
 .rich.z {
     font-family: "Rich", fantasy;
+    /*background: linear-gradient(45deg, rgba(0,0,0,.3) 0%, rgba(136,136,136,.4) 34%, rgba(139,139,139,.3) 66%, rgba(0,0,0,.6) 100%);*/
+}
+
+.mni {
+    font-weight: 300;
+    transition: all 2s;
+    transition-timing-function: cubic-bezier(0, 0, 1, 1);
+}
+
+.mni.z, .mni:active {
+    font-weight: 900;
+}
+
+.c {
+    visibility: collapse;
+    opacity: 0;
+    transition: opacity 320ms;
+}
+
+header .kthx:active .c {
+    visibility: revert;
+    opacity: .3;
 }

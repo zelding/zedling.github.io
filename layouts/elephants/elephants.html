@@ -6,9 +6,10 @@
                 <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title {{ with .Params.bzz.h1 }}{{ range $i := . }}{{ $i }}{{ end }}{{ end }}">
                     {{ .Params.header_text | default .Site.Title }}
                 </h1>
-                {{ with .Params.description }}
-                    <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4 {{ with $.Params.bzz.h2 }}{{ range $i := . }}{{ $i }}{{ end }}{{ end }}">
-                        {{ . }}
+                {{ with .Params.subtitle }}
+                    <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4 {{ with $.Params.bzz.h2 }}{{ range $i := . }}{{ $i }} {{ end }}{{ end }}">
+                        <span>{{ .first }}</span><br class="dn-m">
+                        <span class="c">{{ .second }}</span>
                     </h2>
                 {{ end }}
             </div>
@@ -32,6 +33,26 @@
                                    href="{{ $data.url }}">Link
                                     {{- partial "new-window-icon.html" . -}}
                                 </a>
+                                {{ end }}
+                            </span>
+                        </dd>
+                    {{ end }}
+                </dl>
+            </div>
+
+            <div>
+                <dl class="lh-title pa4 mt0">
+                    {{ range $data := .Params.random }}
+                        <dt class="f6 b">{{ $data.s }}</dt>
+                        <dd class="ml0 mb1">
+                            <span class="flex flex-wrap justify-between">
+                                {{- $data.e }}
+                                {{ with $data.url }}
+                                    <a class="link dib link-transition pl1" target="_blank"
+                                       hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
+                                       href="{{ $data.url }}">Link
+                                        {{- partial "new-window-icon.html" . -}}
+                                    </a>
                                 {{ end }}
                             </span>
                         </dd>

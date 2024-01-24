@@ -3,7 +3,8 @@ title: Kristof Dekany
 description: Online CV
 header_text: o7 
 completion: 100
-bzz: true
+bzz:
+    h1: [bzz]
 sitemap:
     changefreq: never
     priority: 1

@@ -4,7 +4,8 @@ description: Online CV
 header_text: o/
 my_name: Dékány Kristóf
 completion: 100
-bzz: true
+bzz:
+    h1: [bzz]
 sitemap:
     changefreq: never
     priority: 1

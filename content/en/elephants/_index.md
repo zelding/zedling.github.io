@@ -1,10 +1,13 @@
 ---
 title: Elephants on the site
 description: Elephants on the site
+subtitle:
+    first: Elephants on the site
+    second: They are not just in rooms anymore.
 header_text: FAQ
 bzz:
-    h1: [bzz]
-    h2: [rich]
+    h1: [mni]
+    h2: [rich, kthx]
     
 sitemap:
     changefreq: monthly
@@ -20,11 +23,12 @@ questions:
     - q: Why is English the default language?
       a: Why isn't everywhere? But seriously, this is IT. It should be in english only - yes, everything! Besides, english is the closest thing we have to global human language, I'm trying to help a bit ;) and if you are going to put me on refactoring some old bulgarian code, you better get me somebody who can translate it :P
     - q: These colors are bad for printing!
-      a: Good. Don't waste paper on printing CVs. Can't you fetch a tablet or something? I'v tried to make it somewhat bearable on mobiles too. It is better live anyways ;)
+      a: Good. Don't waste paper on printing CVs. Can't you fetch a tablet or something? I've tried to make it somewhat bearable on mobiles too. It is better live anyways ;)
 
 random:
     - s: I don't want to lead a team I don't know.
       e: The only reason I accepted a leading role, because I've worked with them with years. Although that is more that enough, some is required.  
     - s: I don't want to do an other presentation on technical debt.
       e: 
+    - s: I can type `udpade` faster than `update`
 ---

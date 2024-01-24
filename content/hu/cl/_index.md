@@ -10,4 +10,4 @@ sitemap:
     priority: 0.6
 ---
 
-# Hamarosan { .pv1 }
+# Hamarosan { .pv1 .bzz }
