@@ -3,6 +3,7 @@ title: Kristof Dekany
 description: Online CV
 header_text: o7 
 completion: 100
+bzz: true
 sitemap:
     changefreq: never
     priority: 1
@@ -10,4 +11,4 @@ sitemap:
 
 ###### As you can clearly see, I'm a ~~UX and design guru~~  backend developer.
 
-## Welcome to my site!
+## Welcome to my site! { .rich }

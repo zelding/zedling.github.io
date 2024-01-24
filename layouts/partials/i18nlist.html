@@ -1,5 +1,4 @@
 {{ if .IsTranslated }}
-<h4>{{ i18n "translations" }}</h4>
 <ul class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr0 ml3" "pl0 mr3" }}">
     {{ range .Translations }}
         {{ $langName := or .Language.LanguageName .Language.Lang }}

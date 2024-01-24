@@ -14,8 +14,16 @@
     url("../fonts/DejaVuSansMono-Oblique.ttf") format("truetype")
 }
 
+@font-face {
+    font-family: "Rich";
+    font-style: normal;
+    font-weight: 500;
+    src: local("Open"),
+    url("../fonts/RichTheBarberPU.ttf") format("truetype")
+}
+
 body.dejavu {
-    font-family: "DejaVu", ui-monospace;
+    font-family: "DejaVu", monospace;
 }
 
 .cv blockquote {
@@ -33,4 +41,25 @@ body.dejavu {
 
 .green-60 {
     color: rgba(25, 169, 116, .6);
+}
+
+.bzz {
+    font-family: "DejaVu", monospace;
+    transition: all 5s;
+    transition-timing-function: steps(5, jump-both);
+}
+
+.bzz:active, .bzz.z {
+    font-family: "Comic Sans MS", cursive;
+}
+
+
+.rich {
+    font-family: "DejaVu", monospace;
+    transition: all 5s;
+    transition-timing-function: steps(5, jump-both);
+}
+
+.rich.z {
+    font-family: "Rich", fantasy;
 }
