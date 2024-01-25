@@ -4,7 +4,7 @@ url: cl
 header_text: Motivációs levél
 description: miért választanátok engem, miért választanálak titeket
 translationKey: cl
-completion: 5
+completion: 8
 sitemap:
     changefreq: yearly
     priority: 0.6

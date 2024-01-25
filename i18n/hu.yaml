@@ -48,3 +48,12 @@ allow_selected:
 
 the_button:
     other: Ez egy gomb
+
+elephants_one:
+    other: Eltaláltam párat?
+
+elephants_two:
+    other: Aspirációk, ötletek, egyéb
+
+credits_one:
+    other: Sorrend nem számít

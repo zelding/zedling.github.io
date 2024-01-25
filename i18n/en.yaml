@@ -48,3 +48,11 @@ allow_selected:
 
 the_button:
     other: This is a button
+
+elephants_one:
+    other: Did I guess some?
+elephants_two:
+    other: Aspirations, ideas, miscellaneous
+
+credits_one:
+    other: In no particular order

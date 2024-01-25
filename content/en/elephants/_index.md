@@ -1,11 +1,14 @@
 ---
 title: Elephants on the site
 description: Elephants on the site
+translationKey: elephants
 subtitle:
     first: Elephants on the site
     second: They are not just in rooms anymore.
     third: And not all of them are mine.
 header_text: FAQ
+st1: elephants_one
+st2: elephants_two
 bzz:
     h1: [bzz]
     h2: [rich, kthx]
@@ -45,4 +48,10 @@ random:
     - s: I left out a bunch of things from my skills
       e: |
         For example, should I say I can use a smartphone? Or I might be able to install <span class="di w-auto bzz">Windows Millennium ©</span> by just listening to it? What about ftp servers or telnet, mirc? I've seen them, used some to some extent, is that relevant, or it would just bloat the page? Some of them are just things that mildly interested me at some point in time, and I still remember some of it - that doesn't necessarily mean I would like to be an scp server administrator :D
+    - s: This sites future 
+      e: | 
+        <p class="mv0">I keep updating it for some time, depends on the time and fun ratio, but will eventually end up like <abbr title aria-describedby="https://docs.google.com/document/d/1aTKSYMRIkR1ywF_Bs93IV6V4vO-tOGcc100uyojxwDg/edit?usp=sharing">Yapper</abbr>. I had such high hopes.</p>
+    - s: Tests grew on me. Now I expect them and expect me to require them.
+      e: |
+        They used to feel as an obsticle, but those were smaller programs in many regards. The stuff I will be likely reponsible is too wast in complextity to only rely on mortals. I like results, and moreover, I like guaranteeing results - between parameters -, and for that tests are required.
 ---

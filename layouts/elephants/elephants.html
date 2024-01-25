@@ -21,10 +21,12 @@
 {{ define "main" }}
     <div class="flex-l mt2 mw8 center comingsoon">
         <section class="flex-ns flex-wrap justify-around mv4 bg-white-80">
-            <div>
-                <h3 class="ph4">Did I guess some?</h3>
+
+            {{ with .Params.questions }}
+            <div class="w-100">
+                <h3 class="ph4">{{ i18n $.Params.st1 }}</h3>
                 <dl class="lh-title pa4 mt0">
-                    {{ range $data := .Params.questions }}
+                    {{ range $data := . }}
                         <dt class="f6 b {{ with $data.qc }}{{ range $i := . }}{{ $i }}{{ end }} {{ end }}">{{ $data.q | safeHTML }}</dt>
                         <dd class="ml0 mb1">
                             <span class="flex flex-wrap justify-between">
@@ -41,11 +43,13 @@
                     {{ end }}
                 </dl>
             </div>
+            {{ end }}
 
-            <div>
-                <h3 class="ph4">Aspirations, ideas, miscellaneous</h3>
+            {{ with .Params.random }}
+            <div class="w-100">
+                <h3 class="ph4">{{ i18n $.Params.st2 }}</h3>
                 <dl class="lh-title pa4 mt0">
-                    {{ range $data := .Params.random }}
+                    {{ range $data := . }}
                         <dt class="f6 b {{ with $data.qc }}{{ range $i := . }}{{ $i }}{{ end }} {{ end }}">{{ $data.s | safeHTML }}</dt>
                         <dd class="ml0 mb1">
                             <span class="flex flex-wrap justify-between">
@@ -62,6 +66,7 @@
                     {{ end }}
                 </dl>
             </div>
+            {{ end }}
         </section>
     </div>
 {{ end }}
