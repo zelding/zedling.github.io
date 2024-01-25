@@ -9,7 +9,8 @@
                 {{ with .Params.subtitle }}
                     <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4 {{ with $.Params.bzz.h2 }}{{ range $i := . }}{{ $i }} {{ end }}{{ end }}">
                         <span>{{ .first }}</span><br class="dn-m">
-                        <span class="c">{{ .second }}</span>
+                        <span class="c">{{ .second }}</span><br class="dn-m">
+                        <span class="cc">{{ .third }}</span>
                     </h2>
                 {{ end }}
             </div>
@@ -21,12 +22,13 @@
     <div class="flex-l mt2 mw8 center comingsoon">
         <section class="flex-ns flex-wrap justify-around mv4 bg-white-80">
             <div>
+                <h3 class="ph4">Did I guess some?</h3>
                 <dl class="lh-title pa4 mt0">
                     {{ range $data := .Params.questions }}
-                        <dt class="f6 b">{{ $data.q }}</dt>
+                        <dt class="f6 b {{ with $data.qc }}{{ range $i := . }}{{ $i }}{{ end }} {{ end }}">{{ $data.q | safeHTML }}</dt>
                         <dd class="ml0 mb1">
                             <span class="flex flex-wrap justify-between">
-                                {{- $data.a }}
+                                {{- $data.a | safeHTML }}
                                 {{ with $data.url }}
                                 <a class="link dib link-transition pl1" target="_blank"
                                    hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
@@ -41,12 +43,13 @@
             </div>
 
             <div>
+                <h3 class="ph4">Aspirations, ideas, miscellaneous</h3>
                 <dl class="lh-title pa4 mt0">
                     {{ range $data := .Params.random }}
-                        <dt class="f6 b">{{ $data.s }}</dt>
+                        <dt class="f6 b {{ with $data.qc }}{{ range $i := . }}{{ $i }}{{ end }} {{ end }}">{{ $data.s | safeHTML }}</dt>
                         <dd class="ml0 mb1">
                             <span class="flex flex-wrap justify-between">
-                                {{- $data.e }}
+                                {{- $data.e | safeHTML }}
                                 {{ with $data.url }}
                                     <a class="link dib link-transition pl1" target="_blank"
                                        hreflang="{{ site.LanguageCode | default site.Language.Lang }}"

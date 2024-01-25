@@ -9,6 +9,7 @@ sitemap:
 - Rust
 - LinkerD (service mesh)
 - Tensor flow, Keras
+- ULAM / SplaT
 - Code quality tools
   - PHPStan, CodeSniffer, Mutagen.io etc
 - Mathlab / LateX

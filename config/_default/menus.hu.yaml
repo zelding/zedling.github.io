@@ -1,7 +1,7 @@
 main:
     - name: Önéletrajz
-      pageRef: /cv
+      pageRef: /hu/cv
       weight: 20
     - name: Motivációs levél
-      pageRef: /cl
+      pageRef: /hu/cl
       weight:  30

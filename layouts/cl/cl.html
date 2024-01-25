@@ -1,10 +1,16 @@
 {{ define "main" }}
-    <div class="flex-l mt2 mw8 center comingsoon">
-        <section class="pv5 ph1 v-mid measure-wide-l white-60">
+    <div class="flex-l flex-column-l items-center-l mt2 w-100 center comingsoon">
+        <section class="relative pv2 ph1 v-mid measure-wide white-60 fo">
             {{ .Content }}
+            <div class="absolute bottom-0 h-75 left-0 w-100">&nbsp;</div>
         </section>
 
-        <div class="pv5 mw8 ml6">
+        <section class="relative w-100 pv5 ph1 v-mid measure-wide white-60">
+            <h1 class="pv1">Something else</h1>
+            <p>asd</p>
+        </section>
+
+        <div class="pv5 mw8">
             {{ partial "lastmod-side.html" (dict "WordCount" .WordCount "Lastmod" .Lastmod "Completion" (.Param "completion")) }}
         </div>
     </div>
