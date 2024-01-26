@@ -10,4 +10,4 @@ sitemap:
     priority: 0.6
 ---
 
-# Coming soon { .pv1 .mni }
+# Coming soon { .pv1 .mni .mh5 }

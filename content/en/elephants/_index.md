@@ -28,13 +28,18 @@ questions:
         Then why did you bother with "this and that"? <span class="c">- Those are SEO things.</span>
       qc: [kthx]
       a: I still want to have a decent site. It is somewhat interesting too. What would you do with a static site to have fun?
+    - q: That is a lot of schools! <span class="c">- I know, right?</span>
+      qc: [kthx]
+      a: |
+         <p class="mv0 kthx">I thought about starting from kindergarten, but I haven't made a trap in the sandbox in ages. But seriously no, I haven't finished any universities. There was too much clutter. The subject I've listed were the ones that interested me, and those are the ones I attended.&nbsp;&nbsp;If this is some scientific or governmental position that requires it and it didn't came up yet, I am sorry that I have wasted your time.<img class="di mxh-1 pv0 ph0 mv0 mh0 c" src="/images/aw.png" alt="anyway">In every other case that I know of, diplomas are just luxuries in this industry. If you can afford to care about your employees accreditation, you are lucky. </p>
     - q: Why is English the default language?
       a: Why isn't everywhere? But seriously, this is IT. It should be in English only - yes, everything! Besides, English is the closest thing we have to global human language, I'm trying to help a bit ;) and if you are going to put me on refactoring some old bulgarian code, you better get me somebody who can translate it :P
     - q: These colors are bad for printing!
       a: Good. Don't waste paper on printing CVs. Can't you fetch a tablet or something? I've tried to make it somewhat bearable on mobile too. It is better live anyways ;)
     - q: Why would you "publish" it unfinished?
       a: Why not? I'm not embarrassed about it and it is not indexed either. The journey should count more, maybe take a look at the commits.
-
+    - q: Agile discrepancies
+      a: So far I mostly heard bad, and experienced none. I can see it working, I just haven't yet.
 random:
     - s: I don't want to lead a team I don't know.
       e: |

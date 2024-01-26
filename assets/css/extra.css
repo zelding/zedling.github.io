@@ -51,6 +51,15 @@ body.dejavu {
     justify-content: center;
 }
 
+.top-50 {
+    top:50%
+}
+
+.mxh-1 {
+    max-height: 1em;
+    width: auto;
+}
+
 .fo {
     overflow: hidden;
 
@@ -124,4 +133,10 @@ body.dejavu {
 
 .nyy.z, .nyy:active {
     max-width: 112em;
+}
+
+@media screen and (max-width: 30em) {
+    .right-1-s {
+        right: 1em;
+    }
 }

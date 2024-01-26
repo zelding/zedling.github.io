@@ -10,6 +10,8 @@ sitemap:
 - LinkerD (service mesh)
 - Tensor flow, Keras
 - ULAM / SplaT
+- Something agile*
+- German, Spanish
 - Code quality tools
   - PHPStan, CodeSniffer, Mutagen.io etc
 - Mathlab / LateX

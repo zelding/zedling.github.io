@@ -6,7 +6,7 @@
                 {{ .Params.header_text | default .Site.Title }}
             </h1>
             {{ with .Params.description }}
-                <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4 {{ with $.Params.bzz.h2 }}{{ range $i := . }}{{ $i }} {{ end }}{{ end }}">
+                <h2 class="fw1 f4 f3-l white-80 measure-wide-l center lh-copy mt3 mb4 {{ with $.Params.bzz.h2 }}{{ range $i := . }}{{ $i }} {{ end }}{{ end }}">
                     {{ . }}
                 </h2>
             {{ end }}

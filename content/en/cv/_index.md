@@ -21,17 +21,17 @@ studies:
         stuff: C#, Pascal
     2007-2011:
         name: ELTE, Budapest, HU
-        subject: Computer Science
+        subject: Computer Science *
         url: https://www.elte.hu/en/
         stuff: C++, Haskel, Calculus, Windows System Admin
     2011-2012: 
         name: PTE, Pécs, HU
-        subject: Engineering Information Technology
+        subject: Engineering Information Technology *
         url: https://english.mik.pte.hu
         stuff: C, C#, Statistics, Calculus, Nuclear Physics
     2012-2013: 
         name: ELTE, Budapest, HU
-        subject: Computer Science
+        subject: Computer Science *
         url: https://www.elte.hu/en/
         stuff: C#, Haskel, DirectX, PHP
 jobs:
