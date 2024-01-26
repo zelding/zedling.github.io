@@ -160,11 +160,11 @@ a .roller {
     }
 
     .dn-s {
-        display: none;
+        visibility: hidden;
     }
 
     .dib-s {
-        display: inline-block;
+        visibility: revert;
     }
 
     a .roll {

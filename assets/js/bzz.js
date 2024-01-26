@@ -36,7 +36,7 @@ const hhh = (p, cb, bd, dd) => {
     setTimeout(bzz, d, p, bd, dd);
 };
 
-const cl = ['bzz', 'mni', 'rich', 'kthx', 'nny'];
+const cl = ['bzz', 'kthx'];
 const ab = () => {
     console.log("asd");
     for(let i = 0; i<cl.length;i++) {

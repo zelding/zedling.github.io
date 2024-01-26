@@ -9,7 +9,7 @@
                 {{ range $date, $data := .Params.studies }}
                 <dt class="f6 b">{{ $date }}</dt>
                 <dd class="ml0 mb1">
-                    <span class="flex flex-wrap justify-between">
+                    <span class="flex justify-between">
                         {{- $data.name }} - {{ $data.subject -}}
                         <a class="link dib link-transition pl1" target="_blank"
                            hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
@@ -53,6 +53,10 @@
         </div>
         {{ end }}
     </section>
+
+    <aside class="flex justify-around">
+        <p class="f5 washed-red"><strong class="red">*</strong> please check the faq</p>
+    </aside>
 
     {{ .Scratch.Set "wordCount" 0 }}
     {{ .Scratch.Set "lastMod" nil }}

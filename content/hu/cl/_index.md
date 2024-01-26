@@ -10,7 +10,7 @@ sitemap:
     priority: 0.6
 ---
 
-# Hamarosan, tényleg { .pv1 .bzz .mh2 }
+# Hamarosan, tényleg { .pv1 .bzz .mh1 }
 
 Az angol jobban megy, azzal haladok, azán emelgetek át dolgokat.  
 Ezt pl nem :D
