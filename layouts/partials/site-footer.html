@@ -2,7 +2,7 @@
     <div class="flex justify-between flex-row-l flex-column items-center">
 
         <div class="w-100 w-third-l">
-            <a class="w-100 f4 fw4 hover-white no-underline white-70 dib pv2 ph3-l" href="{{ .Site.Home.Permalink }}">
+            <a class="w-100 f4 fw4 hover-white c-animate no-underline white-70 dib pv2 ph3-l" href="{{ .Site.Home.Permalink }}">
                 &copy; {{ with .Site.Copyright | default .Site.Title }} {{ . | safeHTML }} {{ now.Format "2006"}} {{ end }}
             </a>
         </div>
@@ -16,7 +16,7 @@
                     <ul class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr0 ml3" "pl0 mr3" }} mv0 pv2 w-100">
                         {{ range .Site.Menus.footer }}
                             <li class="list f4 fw4 dib {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3" }}">
-                                <a class="hover-blue white-90" href="{{ .PageRef }}" title="{{ i18n "pageTitle" . }}">
+                                <a class="hover-blue white-90 c-animate" href="{{ .PageRef }}" title="{{ i18n "pageTitle" . }}">
                                     {{ .Name }}
                                 </a>
                             </li>

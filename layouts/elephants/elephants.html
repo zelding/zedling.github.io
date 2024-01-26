@@ -20,7 +20,7 @@
 
 {{ define "main" }}
     <div class="flex-l mt2 mw8 center comingsoon">
-        <section class="flex-ns flex-wrap justify-around mv4 bg-white-80">
+        <section class=" w-100 flex flex-wrap justify-around mv4 bg-white-80">
 
             {{ with .Params.questions }}
             <div class="w-100">
@@ -68,9 +68,5 @@
             </div>
             {{ end }}
         </section>
-    </div>
-
-    <div class="fixed left-1-l right-1-s blue top-50 br-100">
-        <a id="almost_button" class="pointer">&nbsp;&nbsp;&nbsp;</a>
     </div>
 {{ end }}

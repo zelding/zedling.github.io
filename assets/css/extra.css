@@ -60,6 +60,7 @@ body.dejavu {
     width: auto;
 }
 
+
 .fo {
     overflow: hidden;
 
@@ -68,9 +69,14 @@ body.dejavu {
     }
 }
 
+.c-animate {
+    transition:color .25s ease-in-out
+}
+
 .green-60 {
     color: rgba(25, 169, 116, .6);
 }
+
 
 .bzz {
     font-family: "DejaVu", monospace;
@@ -116,12 +122,12 @@ body.dejavu {
     transition: opacity 1280ms;
 }
 
-.kthx:active .c {
+.kthx.z .c, .kthx:active .c {
     visibility: revert;
     opacity: .3;
 }
 
-.kthx:active .cc {
+.kthx.z .c, .kthx:active .cc {
     visibility: revert;
     opacity: .1;
 }
@@ -135,8 +141,47 @@ body.dejavu {
     max-width: 112em;
 }
 
+a .roll {
+    display: inline-block;
+    width: 100%;
+}
+
+a .roller {
+    visibility: hidden;
+    width: 0;
+    transition: width 100ms;
+    transition-timing-function: linear;
+}
+
+
 @media screen and (max-width: 30em) {
     .right-1-s {
         right: 1em;
     }
+
+    .dn-s {
+        display: none;
+    }
+
+    .dib-s {
+        display: inline-block;
+    }
+
+    a .roll {
+        visibility: hidden;
+        width: 100%;
+    }
+
+    a .roller {
+        visibility: revert;
+    }
+}
+
+a:hover .roll {
+    visibility: hidden;
+}
+
+a:hover .roller {
+    visibility: revert;
+    width: 100%;
 }
