@@ -49,5 +49,5 @@ jobs:
         name: Apex IT Services, Budapest, HU
         role: Lead developer
         url: https://www.xcams-models.com/en/
-        stuff: CI/CD, TTD
+        stuff: CI/CD, TTD, 2-8 people
 ---

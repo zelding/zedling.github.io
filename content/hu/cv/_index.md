@@ -21,17 +21,17 @@ studies:
         stuff: C#, Pascal
     2007-2011:
         name: ELTE, Budapest, HU
-        subject: Programozó matematika
+        subject: Programozó matematika *
         url: https://www.elte.hu/
         stuff: C++, Haskel, Analízis, Windows System Admin
     2011-2012:
         name: PTE, Pécs, HU
-        subject: Mérnök Informatika
+        subject: Mérnök Informatika *
         url: https://english.mik.pte.hu
         stuff: C, C#, Statisztika, Analízis, Atomfizika
     2012-2013:
         name: ELTE, Budapest, HU
-        subject: Programozó informatika
+        subject: Programozó informatika *
         url: https://www.elte.hu/
         stuff: C#, Haskel, DirectX, PHP
 jobs:
@@ -49,5 +49,5 @@ jobs:
         name: Apex IT Services, Budapest, HU
         role: Vezető fejlesztő
         url: https://www.xcams-models.com/en/
-        stuff: CI/CD, TTD
+        stuff: CI/CD, TTD, 2-8 fő
 ---
