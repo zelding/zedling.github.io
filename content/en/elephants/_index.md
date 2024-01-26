@@ -23,22 +23,22 @@ questions:
       qc: [kthx]
       a: Frankly, I misspelled my nickname when I've created my account on Github. It is supposed to be ZeDlinG - one of my old nicknames :)
     - q: Why is there no contact information?
-      a: "I don't want some Ai to scrape my stuff, that's also the reason why the site is not indexed. I only would like to show this to a narrow selection of people.&nbsp;&nbsp;If you can read this, you should already know how to contact me.&nbsp;&nbsp;If you forgot (somehow), you should be able to find them through the linked social accounts in the footer. This is meant as an extra attachment next to the rest of my stuff."
+      a: "I don't want some Ai to scrape my stuff, that's also the reason why the site is not indexed. I only would like to show this to a narrow selection of people.&nbsp;&nbsp;If you can read this, you should already know how to contact me.&nbsp;&nbsp;If you forgot (somehow), you should be able to find them through the linked social accounts in the footer. This site is meant as an a companion for the tech team."
     - q: |
         Then why did you bother with "this and that"? <span class="c">- Those are SEO things.</span>
       qc: [kthx]
       a: I still want to have a decent site. It is somewhat interesting too. What would you do with a static site to have fun?
     - q: Why is English the default language?
-      a: Why isn't everywhere? But seriously, this is IT. It should be in english only - yes, everything! Besides, english is the closest thing we have to global human language, I'm trying to help a bit ;) and if you are going to put me on refactoring some old bulgarian code, you better get me somebody who can translate it :P
+      a: Why isn't everywhere? But seriously, this is IT. It should be in English only - yes, everything! Besides, English is the closest thing we have to global human language, I'm trying to help a bit ;) and if you are going to put me on refactoring some old bulgarian code, you better get me somebody who can translate it :P
     - q: These colors are bad for printing!
-      a: Good. Don't waste paper on printing CVs. Can't you fetch a tablet or something? I've tried to make it somewhat bearable on mobiles too. It is better live anyways ;)
+      a: Good. Don't waste paper on printing CVs. Can't you fetch a tablet or something? I've tried to make it somewhat bearable on mobile too. It is better live anyways ;)
     - q: Why would you "publish" it unfinished?
       a: Why not? I'm not embarrassed about it and it is not indexed either. The journey should count more, maybe take a look at the commits.
 
 random:
     - s: I don't want to lead a team I don't know.
       e: |
-        The only reason I accepted a leading role, because I've worked with them with years. Although that is more that enough, some is required.
+        The only reason I accepted a leading role, because I've worked with them with years. Although that is more that enough, some time is required.
     - s: |
         I don't want to do an other presentation on technical debt. <span class="c">Imagine having to work with rusty, old shovels</span>
       qc: [kthx]
@@ -47,11 +47,11 @@ random:
       e: same for `claer` and `fucntion`
     - s: I left out a bunch of things from my skills
       e: |
-        For example, should I say I can use a smartphone? Or I might be able to install <span class="di w-auto bzz">Windows Millennium ©</span> by just listening to it? What about ftp servers or telnet, mirc? I've seen them, used some to some extent, is that relevant, or it would just bloat the page? Some of them are just things that mildly interested me at some point in time, and I still remember some of it - that doesn't necessarily mean I would like to be an scp server administrator :D
+        For example, should I say I can use a smartphone? Or I might be able to install <span class="di w-auto bzz">Windows Millennium ©</span> blindfolded? What about ftp servers or telnet, mirc? I've seen them, used some to some extent, is that relevant, or it would just bloat the page? Some of them are just things that mildly interested me at some point in time, and I still remember some of it - that doesn't necessarily mean I would like to be an scp server administrator :D
     - s: This sites future 
       e: | 
         <p class="mv0">I keep updating it for some time, depends on the time and fun ratio, but will eventually end up like <abbr title aria-describedby="https://docs.google.com/document/d/1aTKSYMRIkR1ywF_Bs93IV6V4vO-tOGcc100uyojxwDg/edit?usp=sharing">Yapper</abbr>. I had such high hopes.</p>
     - s: Tests grew on me. Now I expect them and expect me to require them.
       e: |
-        They used to feel as an obsticle, but those were smaller programs in many regards. The stuff I will be likely reponsible is too wast in complextity to only rely on mortals. I like results, and moreover, I like guaranteeing results - between parameters -, and for that tests are required.
+        They used to feel as an obstacle, but those were smaller programs in many regards. The stuff I will be likely responsible is too wast in complexity to only rely on mortals. I like results, and moreover, I like guaranteeing results - between parameters -, and for that tests are required.
 ---
