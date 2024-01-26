@@ -21,6 +21,14 @@ questions:
       qc: [kthx]
       a: |
          Nem. Nektek jut egy kis bónusz.
+    - q: Az jó sok suli! <span class="c">- Ugye?</span>
+      qc: [kthx]
+      a: |
+         <p class="mv0 kthx">Igen, nem fejeztem be semmit. Túl sok volt ami nem érdekelt, azokat soroltam fel, amik igen.</p>
+    - q: Az agilis miért van megcsillagozva?
+      a: Sose csináltam, és szokták szidni. Ha nálatok jó, akkor jó.
+    - q: Mennyire vagy sztoikus?
+      a: Egy pár napja még nem is ismmertem a szót, és már a múzsám is basztat vele. 
 
 random:
     - s: |
