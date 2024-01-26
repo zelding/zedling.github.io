@@ -28,7 +28,7 @@ questions:
     - q: Az agilis miért van megcsillagozva?
       a: Sose csináltam, és szokták szidni. Ha nálatok jó, akkor jó.
     - q: Mennyire vagy sztoikus?
-      a: Egy pár napja még nem is ismertem a szót, és már a múzsám is basztat vele. 
+      a: Szerintem teljesen rendben van, hogy az oldalam nyelvekre nem szimmetrikus. 
 
 random:
     - s: |

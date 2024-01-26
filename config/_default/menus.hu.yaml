@@ -1,7 +1,10 @@
 main:
-    - name: Önéletrajz
+    - name: ÖR
+      title: Önéletrajz
       pageRef: /hu/cv
       weight: 20
-    - name: Motivációs levél
+
+    - name: ML
+      title: Motivációs levél
       pageRef: /hu/cl
       weight:  30

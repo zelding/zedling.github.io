@@ -1,7 +1,10 @@
 main:
     - name: CV
+      title: Curriculum Vite
       pageRef: /cv
       weight: 20
+
     - name: CL
+      title: Cover Letter
       pageRef: /cl
       weight:  30
