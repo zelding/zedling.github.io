@@ -4,7 +4,7 @@
         {{ $langName := or .Language.LanguageName .Language.Lang }}
         {{ $langCode := or .Language.LanguageCode .Language.Lang }}
     <li class="list f5 f4-ns fw4 dib {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3" }}">
-        <a class="hover-white blue" hreflang="{{ $langCode }}" href="{{ .RelPermalink }}">{{ $langName }}</a>
+        <a class="hover-white blue c-animate" hreflang="{{ $langCode }}" href="{{ .RelPermalink }}">{{ $langName }}</a>
     </li>
     {{ end}}
 </ul>

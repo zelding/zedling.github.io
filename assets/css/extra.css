@@ -77,7 +77,7 @@ body.dejavu {
     color: #f60;
 }
 
-.c-animate {
+.c-animate, .link.c-animate {
     transition:color .25s ease-in-out
 }
 
