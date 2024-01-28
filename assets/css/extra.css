@@ -132,21 +132,22 @@ body.dejavu {
 
 .kthx.z .c, .kthx:active .c {
     visibility: revert;
-    opacity: .3;
+    opacity: .4;
 }
 
 .kthx.z .c, .kthx:active .cc {
     visibility: revert;
-    opacity: .1;
+    opacity: .2;
 }
 
 .nny {
-    transition: max-width 1s;
+    margin:revert;
+    transition: margin 1s;
     transition-timing-function: steps(64);
 }
 
 .nyy.z, .nyy:active {
-    max-width: 112em;
+    margin-left: 112em;
 }
 
 a .roll {

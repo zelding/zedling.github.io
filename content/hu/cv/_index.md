@@ -23,7 +23,7 @@ studies:
         name: ELTE, Budapest, HU
         subject: Programozó matematika *
         url: https://www.elte.hu/
-        stuff: C++, Haskel, Analízis, Windows System Admin
+        stuff: C++, Haskel, Analízis, Windows SysAdmin
     2011-2012:
         name: PTE, Pécs, HU
         subject: Mérnök Informatika *

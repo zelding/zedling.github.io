@@ -8,3 +8,12 @@ main:
       title: Cover Letter
       pageRef: /cl
       weight:  30
+
+footer:
+    - name: Credits
+      pageRef: /credits
+      weight: 20
+
+    - name:    Faq
+      pageRef: /elephants
+      weight:  20
