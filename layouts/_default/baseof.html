@@ -74,11 +74,11 @@
         <script src="{{ $bzz.Permalink }}" type="application/javascript"></script>
     </head>
 
-    <body id="top" class="ma0 {{ $.Param "body_classes" | default "dejavu bg-near-black"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
+    <body id="top" class="vh-100 ma0 {{ $.Param "body_classes" | default "dejavu bg-near-black"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
         {{ block "header" . }}
             {{ partial "site-header.html" . }}
         {{ end }}
-        <main class="pb7" role="main">
+        <main class="pb5" role="main">
             {{ block "main" . }}{{ end }}
 
             {{ partialCached "the_button.html" . }}
