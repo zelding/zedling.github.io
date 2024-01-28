@@ -1,0 +1,134 @@
+{{ define "main" }}
+<div class="flex flex-column mt2 mw8 center">
+    <section class="w-100 bg-white-80 flex flex-wrap justify-around mb4">
+        {{ .Content }}
+    </section>
+
+{{ with .Site.GetPage "/cv" }}
+    <section class="flex-ns bg-white-80 flex-wrap justify-around mb4">
+        <div class="w-100 w-50-l">
+            <h3 class="tc tl-l pl2-l">{{ i18n "studies" }}</h3>
+
+            <dl class="lh-title pa4 mt0">
+                {{ range $date, $data := .Params.studies }}
+                    <dt class="f6 b">{{ $date }}</dt>
+                    <dd class="ml0 mb1 relative w-100">
+                        <span class="flex flex-row justify-between w-80" style="display: flex">
+                            {{- $data.name }} - {{ $data.subject -}}
+                        </span>
+
+                        <span class="dib w-100 i">{{ $data.stuff }}</span>
+
+                        {{ with $data.url }}
+                            <a class="absolute top-0 right--1 link dib link-transition tr" target="_blank"
+                               hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
+                               href="{{ $data.url }}">Link
+                                {{- partial "new-window-icon.html" . -}}
+                            </a>
+                        {{ end }}
+                    </dd>
+                {{ end }}
+            </dl>
+        </div>
+
+        <div class="w-100 w-50-l">
+            <h3 class="tc tl-l pl2-l">{{ i18n "prev_workplaces" }}</h3>
+
+            <dl class="lh-title pa4 mt0">
+                {{ range $date, $data := .Params.jobs }}
+                    <dt class="f6 b">{{ $date }}</dt>
+                    <dd class="ml0 mb1 relative">
+                        <span class="flex justify-between w-80">
+                            {{- $data.name }} - {{ $data.role -}}
+                        </span>
+                        <span class="i">{{ $data.stuff }}</span>
+
+                        <a class="absolute top-0 right--1 link dib link-transition tr" target="_blank"
+                           hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
+                           href="{{ $data.url }}">Link
+                            {{- partial "new-window-icon.html" . -}}
+                        </a>
+                    </dd>
+                {{ end }}
+            </dl>
+        </div>
+    </section>
+
+    <section class="flex-ns flex-wrap justify-between mb4">
+        {{ range .Paginator.Pages }}
+            <div class="relative w-100 bg-white-80 w-48-l mb3">
+                {{ .Render "summary" }}
+            </div>
+        {{ end }}
+    </section>
+{{ end }}
+
+{{ with .Site.GetPage "/cl" }}
+    <section class="flex-ns bg-white-80 flex-wrap justify-around mb4">
+        <div class="relative w-100">
+            {{ .Render "summary" }}
+        </div>
+    </section>
+{{ end }}
+
+{{ with .Site.GetPage "/elephants" }}
+    {{ $params := .Params}}
+    <section class="w-100 flex bg-white-80 flex-wrap justify-around mb4 ph3">
+        <h1 class="f1 mt3 mb1">{{- .Title -}}</h1>
+
+        {{ with .Params.subtitle }}
+            {{ partial "quote.html" .second }}
+            <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4 {{ with $.Params.bzz.h2 }}{{ range $i := . }}{{ $i }} {{ end }}{{ end }}">
+                <span class="cc">{{ .third }}</span>
+            </h2>
+        {{ end }}
+
+        {{ with .Params.questions }}
+            <div class="w-100">
+                <h3 class="ph4">{{ i18n $params.st1 }}</h3>
+                <dl class="lh-title pa4 mt0">
+                    {{ range $data := . }}
+                        <dt class="f6 b mt2 {{ with $data.qc }}{{ range $i := . }}{{ $i }}{{ end }} {{ end }}">{{ $data.q | safeHTML }}</dt>
+                        <dd class="ml0 mb1 relative">
+                            <span class="flex flex-wrap justify-between">
+                                {{- $data.a | safeHTML }}
+                                {{ with $data.url }}
+                                    <a class="absolute top-0 right--1 link dib link-transition tr" target="_blank"
+                                       hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
+                                       href="{{ $data.url }}">Link
+                                        {{- partial "new-window-icon.html" . -}}
+                                    </a>
+                                {{ end }}
+                            </span>
+                        </dd>
+                    {{ end }}
+                </dl>
+            </div>
+        {{ end }}
+
+        {{ with .Params.random }}
+            <div class="w-100">
+                <h3 class="ph4">{{ i18n $params.st2 }}</h3>
+                <dl class="lh-title pa4 mt0">
+                    {{ range $data := . }}
+                        <dt class="f6 b {{ with $data.qc }}{{ range $i := . }}{{ $i }}{{ end }} {{ end }}">{{ $data.s | safeHTML }}</dt>
+                        <dd class="ml0 mb1 relative">
+                            <span class="flex flex-wrap justify-between">
+                                {{- $data.e | safeHTML }}
+                                {{ with $data.url }}
+                                    <a class="absolute top-0 right--1 link dib link-transition tr" target="_blank"
+                                       hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
+                                       href="{{ $data.url }}">Link
+                                        {{- partial "new-window-icon.html" . -}}
+                                    </a>
+                                {{ end }}
+                            </span>
+                        </dd>
+                    {{ end }}
+                </dl>
+            </div>
+        {{ end }}
+    </section>
+{{ end }}
+</div>
+{{ end }}

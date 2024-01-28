@@ -16,11 +16,11 @@
             <meta name="robots" content="noindex, nofollow">
         {{ end }}
 
+        {{ partial "site-style.html" . }}
         {{ $styleExtra := resources.Get "css/extra.css" | resources.Minify | resources.Fingerprint }}
         <link rel="stylesheet" href="{{ $styleExtra.Permalink }}">
         {{ $styleConsent := resources.Get "css/consent.css" | resources.Minify | resources.Fingerprint }}
         <link rel="stylesheet" href="{{ $styleConsent.Permalink }}">
-        {{ partial "site-style.html" . }}
         {{ partial "site-scripts.html" . }}
 
         {{ block "favicon" . }}

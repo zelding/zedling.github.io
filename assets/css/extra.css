@@ -162,7 +162,7 @@ a .roller {
     transition-timing-function: linear;
 }
 
-
+/* -s */
 @media screen and (max-width: 30em) {
     .right-1-s {
         right: 1em;
@@ -183,6 +183,12 @@ a .roller {
 
     a .roller {
         visibility: revert;
+    }
+}
+
+@media screen and (min-width: 60em) {
+    .w-48-l {
+        width: calc(50% - 1em);
     }
 }
 
