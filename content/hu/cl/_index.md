@@ -12,7 +12,7 @@ sitemap:
 
 # Én { .pv1 .tc .tl-l .nny .mh1 }
 
-Alapvetően PCs ember vagyok, nem programozó, az csak jött hozzá. Szeretem a rendet és a rendszert, de nem zavarnak a miliméterek. Törekszem a precizitásra és minőségre, de tudom, hogy nem mindig jön össze. Ha felvesztek, maradok, és igyekszem egy új oszlop lenni. Eddig is így tettem, nekem igazából csak nyűg válltani.&nbsp;&nbsp;Csak ne higgyétek, hogy sosem megyek el.
+Alapvetően PCs ember vagyok, nem programozó, az csak jött hozzá. Szeretem a rendet és a rendszert, de nem zavarnak a miliméterek. Törekszem a precizitásra és minőségre, de tudom, hogy nem mindig jön össze. Ha felvesztek, maradok, és igyekszem egy új oszlop lenni. Eddig is így tettem, nekem igazából csak nyűg válltani.&nbsp;&nbsp;Csak ne higgyétek, hogy sosem megyek el. Szerencsétekre, úgy gondolom, hogy az a jó rendszer, amiben én is kicserélhető vagyok.
 
 # Ti { .pv1 .tc .tl-l .bzz .mh1 }
 
