@@ -141,13 +141,13 @@ body.dejavu {
 }
 
 .nny {
-    margin:revert;
-    transition: margin 1s;
-    transition-timing-function: steps(64);
+    overflow: hidden;
+    transition: margin-left 1s;
+    transition-timing-function: ease-in;
 }
 
-.nyy.z, .nyy:active {
-    margin-left: 112em;
+.nny.z, .nny:active {
+    margin-left: 100%;
 }
 
 a .roll {

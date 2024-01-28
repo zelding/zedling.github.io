@@ -40,6 +40,7 @@ questions:
       a: Why not? I'm not embarrassed about it and it is not indexed either. The journey should count more, maybe take a look at the commits.
     - q: Agile discrepancies
       a: So far I mostly heard bad, and experienced none. I can see it working, I just haven't yet.
+
 random:
     - s: I don't want to lead a team I don't know.
       e: |
@@ -53,6 +54,8 @@ random:
     - s: I left out a bunch of things from my skills
       e: |
         For example, should I say I can use a smartphone? Or I might be able to install <span class="di w-auto bzz">Windows Millennium ©</span> blindfolded? What about ftp servers or telnet, mirc? I've seen them, used some to some extent, is that relevant, or it would just bloat the page? Some of them are just things that mildly interested me at some point in time, and I still remember some of it - that doesn't necessarily mean I would like to be an scp server administrator :D
+    - s: Kit Preferences 
+      e: Thinkpad over Macbook, Linux over Windows. 
     - s: This sites future 
       e: | 
         <p class="mv0">I keep updating it for some time, depends on the time and fun ratio, but will eventually end up like <abbr title aria-describedby="https://docs.google.com/document/d/1aTKSYMRIkR1ywF_Bs93IV6V4vO-tOGcc100uyojxwDg/edit?usp=sharing">Yapper</abbr>. I had such high hopes.</p>
