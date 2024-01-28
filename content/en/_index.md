@@ -12,4 +12,4 @@ sitemap:
 
 ###### As you can clearly see, I'm a ~~UX and design guru~~  backend developer.
 
-## Welcome to my site! { .rich }
+## Welcome to my site! { .rich .pv4 }

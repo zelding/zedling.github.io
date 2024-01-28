@@ -1,19 +1,29 @@
 main:
-    - name: CV
-      title: Curriculum Vite
+    - name:    CV
+      title:   Curriculum Vite
       pageRef: /cv
-      weight: 20
+      weight:  20
 
-    - name: CL
-      title: Cover Letter
+    - name:    CL
+      title:   Cover Letter
       pageRef: /cl
       weight:  30
 
+    - name:    "↧"
+      title:   Bottom
+      pageRef: "#bot"
+      weight:  30
+
 footer:
-    - name: Credits
+    - name:    Credits
       pageRef: /credits
-      weight: 20
+      weight:  30
 
     - name:    Faq
       pageRef: /elephants
       weight:  20
+
+    - name:    "↥"
+      title:   Top
+      pageRef: "#top"
+      weight:  100

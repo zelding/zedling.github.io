@@ -13,4 +13,4 @@ sitemap:
 
 ###### Ahogy az nyilvánvalóan látszik, egy ~~UX és design guru~~  backend fejlesztő vagyok.
 
-## Üdvözöllek az oldalamon! { .rich }
+## Üdvözöllek az oldalamon! { .rich .pv3 }

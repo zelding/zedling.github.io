@@ -1,19 +1,29 @@
 main:
-    - name: ÖR
-      title: Önéletrajz
+    - name:    ÖR
+      title:   Önéletrajz
       pageRef: /hu/cv
-      weight: 20
+      weight:  20
 
-    - name: ML
-      title: Motivációs levél
+    - name:    ML
+      title:   Motivációs levél
       pageRef: /hu/cl
       weight:  30
 
+    - name:    "↧"
+      title:   Le
+      pageRef: "#bot"
+      weight:  30
+
 footer:
-    - name: Credits
+    - name:    Credits
       pageRef: /hu/credits
-      weight: 20
+      weight:  20
 
     - name:    Gyik
       pageRef: /hu/elephants
       weight:  20
+
+    - name:    "↥"
+      title:   Fel
+      pageRef: "#top"
+      weight:  100

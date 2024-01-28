@@ -96,5 +96,7 @@
 
         {{ $general := resources.Get "js/general.js" | resources.Minify | resources.Fingerprint }}
         <script src="{{ $general.Permalink }}" type="application/javascript"></script>
+
+        <span id="bot"></span>
     </body>
 </html>
