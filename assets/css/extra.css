@@ -69,6 +69,14 @@ body.dejavu {
     }
 }
 
+.ananke-socials .mensa:hover {
+    color: #faa500;
+}
+
+.ananke-socials .sourceforge:hover {
+    color: #f60;
+}
+
 .c-animate {
     transition:color .25s ease-in-out
 }

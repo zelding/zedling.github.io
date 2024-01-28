@@ -35,14 +35,17 @@ enableGitInfo = true
 
 [[params.ananke_socials]]
     name = "github"
+    label = "zelding"
     url = "https://github.com/zelding"
 
 [[params.ananke_socials]]
     name = "stackoverflow"
+    label = "zedling"
     url = "https://stackoverflow.com/users/4308297/zedling"
 
 [[params.ananke_socials]]
     name = "linkedin"
+    label = "kristof-dekany"
     url = "https://www.linkedin.com/in/kristof-dekany/"
 
 [[params.ananke_socials]]
@@ -50,7 +53,13 @@ enableGitInfo = true
     url = "https://sourceforge.net/u/zedling/profile/"
 
 [[params.ananke_socials]]
+    name = "mensa"
+    label = "12285"
+    url = "https://mensa.hu"
+
+[[params.ananke_socials]]
     name = "youtube"
+    label = "zedling67"
     url = "https://www.youtube.com/channel/UCccmWYLb5gCh1t5GeTDliNw"
 
 [build]
