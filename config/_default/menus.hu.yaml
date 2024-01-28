@@ -8,3 +8,12 @@ main:
       title: Motivációs levél
       pageRef: /hu/cl
       weight:  30
+
+footer:
+    - name: Credits
+      pageRef: /hu/credits
+      weight: 20
+
+    - name:    Gyik
+      pageRef: /hu/elephants
+      weight:  20
