@@ -4,7 +4,7 @@ url: cl
 header_text: Cover Letter
 description: why would you choose me, why would I choose you
 translationKey: cl
-completion: 75
+completion: 85
 sitemap:
     changefreq: yearly
     priority: 0.6
