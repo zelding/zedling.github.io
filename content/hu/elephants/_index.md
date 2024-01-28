@@ -2,6 +2,12 @@
 title: Potenciális szálkák az oldalon
 description: Potenciális szálkák az oldalon
 header_text: GYIK
+subtitle:
+    first: Szálkák az oldalon
+    second: Az elefántokkal elletétben, ők továbbra is csak szemeket szúrnak 
+    third: de nem feltétlenül csak az enyémeket
+st1: elephants_one
+st2: elephants_two
 
 sitemap:
     changefreq: monthly
@@ -9,7 +15,7 @@ sitemap:
 
 bzz:
     h1: []
-    h2: []
+    h2: [kthx]
     h3: []
 
 questions:

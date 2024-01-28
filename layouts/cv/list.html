@@ -2,44 +2,48 @@
 <article class="pa3 pa4-ns nested-copy-line-height">
 
     <section class="flex-ns flex-wrap justify-around mv4 bg-white-80">
-        <div>
+        <div class="">
             <h3>{{ i18n "studies" }}</h3>
 
             <dl class="lh-title pa4 mt0">
                 {{ range $date, $data := .Params.studies }}
                 <dt class="f6 b">{{ $date }}</dt>
-                <dd class="ml0 mb1">
-                    <span class="flex justify-between">
+                <dd class="ml0 mb1 relative w-100">
+                    <span class="flex flex-row justify-between w-80" style="display: flex">
                         {{- $data.name }} - {{ $data.subject -}}
-                        <a class="link dib link-transition pl1" target="_blank"
-                           hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
-                           href="{{ $data.url }}">Link
-                            {{- partial "new-window-icon.html" . -}}
-                        </a>
                     </span>
 
-                    <span class="i">{{ $data.stuff }}</span>
+                    <span class="dib w-100 i">{{ $data.stuff }}</span>
+
+                    {{ with $data.url }}
+                    <a class="absolute top-0 right--1 link dib link-transition tr" target="_blank"
+                       hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
+                       href="{{ $data.url }}">Link
+                        {{- partial "new-window-icon.html" . -}}
+                    </a>
+                    {{ end }}
                 </dd>
                 {{ end }}
             </dl>
         </div>
 
-        <div>
+        <div class="">
             <h3>{{ i18n "prev_workplaces" }}</h3>
 
             <dl class="lh-title pa4 mt0">
                 {{ range $date, $data := .Params.jobs }}
                     <dt class="f6 b">{{ $date }}</dt>
-                    <dd class="ml0 mb1">
-                        <span class="flex flex-wrap justify-between">
+                    <dd class="ml0 mb1 relative">
+                        <span class="flex justify-between w-80">
                             {{- $data.name }} - {{ $data.role -}}
-                            <a class="link dib link-transition pl1" target="_blank"
-                               hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
-                               href="{{ $data.url }}">Link
-                                {{- partial "new-window-icon.html" . -}}
-                            </a>
                         </span>
                         <span class="i">{{ $data.stuff }}</span>
+
+                        <a class="absolute top-0 right--1 link dib link-transition tr" target="_blank"
+                           hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
+                           href="{{ $data.url }}">Link
+                            {{- partial "new-window-icon.html" . -}}
+                        </a>
                     </dd>
                 {{ end }}
             </dl>

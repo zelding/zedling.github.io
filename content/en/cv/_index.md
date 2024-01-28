@@ -23,7 +23,7 @@ studies:
         name: ELTE, Budapest, HU
         subject: Computer Science *
         url: https://www.elte.hu/en/
-        stuff: C++, Haskel, Calculus, Windows System Admin
+        stuff: C++, Haskel, Calculus, Windows SysAdmin
     2011-2012: 
         name: PTE, Pécs, HU
         subject: Engineering Information Technology *

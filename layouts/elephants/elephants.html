@@ -19,7 +19,7 @@
 {{ end }}
 
 {{ define "main" }}
-    <div class="flex-l mt2 mw8 center comingsoon">
+    <div class="flex-l mt2 mw8 center">
         <section class=" w-100 flex flex-wrap justify-around mv4 bg-white-80">
 
             {{ with .Params.questions }}
@@ -28,11 +28,11 @@
                 <dl class="lh-title pa4 mt0">
                     {{ range $data := . }}
                         <dt class="f6 b mt2 {{ with $data.qc }}{{ range $i := . }}{{ $i }}{{ end }} {{ end }}">{{ $data.q | safeHTML }}</dt>
-                        <dd class="ml0 mb1">
+                        <dd class="ml0 mb1 relative">
                             <span class="flex flex-wrap justify-between">
                                 {{- $data.a | safeHTML }}
                                 {{ with $data.url }}
-                                <a class="link dib link-transition pl1" target="_blank"
+                                <a class="absolute top-0 right--1 link dib link-transition tr" target="_blank"
                                    hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
                                    href="{{ $data.url }}">Link
                                     {{- partial "new-window-icon.html" . -}}
@@ -51,11 +51,11 @@
                 <dl class="lh-title pa4 mt0">
                     {{ range $data := . }}
                         <dt class="f6 b {{ with $data.qc }}{{ range $i := . }}{{ $i }}{{ end }} {{ end }}">{{ $data.s | safeHTML }}</dt>
-                        <dd class="ml0 mb1">
+                        <dd class="ml0 mb1 relative">
                             <span class="flex flex-wrap justify-between">
                                 {{- $data.e | safeHTML }}
                                 {{ with $data.url }}
-                                    <a class="link dib link-transition pl1" target="_blank"
+                                    <a class="absolute top-0 right--1 link dib link-transition tr" target="_blank"
                                        hreflang="{{ site.LanguageCode | default site.Language.Lang }}"
                                        href="{{ $data.url }}">Link
                                         {{- partial "new-window-icon.html" . -}}
