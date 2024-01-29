@@ -2,7 +2,6 @@
 title: Credits
 layout: elephants
 type: elephants
-translationKey: credits
 description: Amik segítettek
 header_text: Credits
 subtitle:

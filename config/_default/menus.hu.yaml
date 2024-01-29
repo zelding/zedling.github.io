@@ -23,6 +23,10 @@ footer:
       pageRef: /hu/elephants
       weight:  20
 
+    - name:    Log
+      pageRef: /hu/log
+      weight:  10
+
     - name:    "↥"
       title:   Fel
       pageRef: "#top"

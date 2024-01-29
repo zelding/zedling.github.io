@@ -1,4 +1,4 @@
-<footer class="{{ .Site.Params.background_color_class | default "bg-black" }} bottom-0 w-100 pa3 debug-gridd" role="contentinfo">
+<footer class="{{ .Site.Params.background_color_class | default "bg-black" }} bottom-0 w-100 pa3" role="contentinfo">
     <div class="flex justify-between flex-row-l flex-column items-center">
 
         <div class="w-100 w-third-l">
@@ -10,12 +10,12 @@
         <button id="cookie_reset"
                 class="w-100 input-reset grow pointer bg-washed-red w-auto-l h-25 mh5">{{ i18n "revoke_cookies" }}</button>
 
-        <div class="flex flex-row-l flex-column w-100 w-third-l justify-end-l">
+        <div class="flex flex-row-l flex-column w-100 w-auto-l justify-end-l">
             <div class="w-auto-l w-100">
                 {{ if .Site.Menus.footer }}
                     <ul class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr0 ml3" "pl0 mr3" }} mv0 pv2 w-100">
                         {{ range .Site.Menus.footer }}
-                            <li class="list f4 fw4 dib {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3" }}">
+                            <li class="list f4 fw4 dib">
                                 <a class="hover-white blue white-90 c-animate" href="{{ .PageRef }}" title="{{ i18n "pageTitle" . }}">
                                     {{ .Name }}
                                 </a>

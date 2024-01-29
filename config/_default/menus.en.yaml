@@ -16,12 +16,19 @@ main:
 
 footer:
     - name:    Credits
+      title:   Credits
       pageRef: /credits
       weight:  30
 
     - name:    Faq
+      title:   Frequently Asked Questions
       pageRef: /elephants
       weight:  20
+
+    - name:    Changelog
+      title:   Changelog
+      pageRef: /log
+      weight:  10
 
     - name:    "↥"
       title:   Top

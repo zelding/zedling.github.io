@@ -2,7 +2,6 @@
 title: Credits
 layout: elephants
 type: elephants
-translationKey: credits
 description: Things that helped me on the way
 header_text: Credits
 subtitle:

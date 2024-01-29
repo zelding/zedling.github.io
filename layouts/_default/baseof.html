@@ -81,7 +81,9 @@
         <main class="pb5" role="main">
             {{ block "main" . }}{{ end }}
 
-            {{ partialCached "the_button.html" . }}
+            {{ block "the_button" . }}
+                {{ partialCached "the_button.html" . }}
+            {{ end }}
         </main>
 
         <div class="fixed left-1-l right-1-s blue top-50 br-100">
