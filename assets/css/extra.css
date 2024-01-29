@@ -142,6 +142,8 @@ body.dejavu {
 
 .nny {
     overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
     transition: margin-left 1s;
     transition-timing-function: ease-in;
 }
