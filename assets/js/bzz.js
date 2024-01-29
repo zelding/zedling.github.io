@@ -67,6 +67,7 @@ ready.then(async () => {
     bzz(f, zzz, 128, 128);
     bzz(g, hhh, 64, 64);
 
+    if (bts.length) {
     for (let x=0;x<bts.length;x++) {
         bts[x].addEventListener('mouseup', ab);
         bts[x].addEventListener('mousedown ', az);
@@ -77,5 +78,5 @@ ready.then(async () => {
             bts[x].addEventListener('pointerenter', ab);
             bts[x].addEventListener('pointerleave', az);
         }
-    }
+    }}
 });

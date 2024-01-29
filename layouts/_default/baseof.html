@@ -18,9 +18,9 @@
 
         {{ partial "site-style.html" . }}
         {{ $styleExtra := resources.Get "css/extra.css" | resources.Minify | resources.Fingerprint }}
-        <link rel="stylesheet" href="{{ $styleExtra.Permalink }}">
+        <link rel="stylesheet" href="{{ $styleExtra.RelPermalink }}">
         {{ $styleConsent := resources.Get "css/consent.css" | resources.Minify | resources.Fingerprint }}
-        <link rel="stylesheet" href="{{ $styleConsent.Permalink }}">
+        <link rel="stylesheet" href="{{ $styleConsent.RelPermalink }}">
         {{ partial "site-scripts.html" . }}
 
         {{ block "favicon" . }}
@@ -39,10 +39,10 @@
             {{ with $defaultIcon }}
                 <link rel="shortcut icon"
                       type="image/x-icon"
-                      href="{{ .Permalink | resources.Fingerprint }}" />
+                      href="{{ .RelPermalink | resources.Fingerprint }}" />
             {{ end }}
             {{ with $manifest }}
-                <link rel="manifest" href="{{ .Permalink | resources.Fingerprint }}" />
+                <link rel="manifest" href="{{ .RelPermalink | resources.Fingerprint }}" />
             {{ end }}
 
             {{/* end */}}
@@ -70,8 +70,12 @@
         {{ end }}
         {{ block "head" . }}{{ partial "head-additions.html" . }}{{ end }}
 
-        {{ $bzz := resources.Get "js/bzz.js" | resources.Minify | resources.Fingerprint }}
-        <script src="{{ $bzz.Permalink }}" type="application/javascript"></script>
+        {{ block "javascripts" . }}
+            {{ $bzz := resources.Get "js/bzz.js" | resources.Minify | resources.Fingerprint }}
+            <script src="{{ $bzz.RelPermalink }}" type="application/javascript"></script>
+            {{ $general := resources.Get "js/general.js" | resources.Minify | resources.Fingerprint }}
+            <script src="{{ $general.RelPermalink }}" type="application/javascript"></script>
+        {{ end }}
     </head>
 
     <body id="top" class="vh-100 ma0 {{ $.Param "body_classes" | default "dejavu bg-near-black"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
@@ -86,18 +90,17 @@
             {{ end }}
         </main>
 
+        {{ block "almost_buton" . }}
         <div class="fixed left-1-l right-1-s blue top-50 br-100">
             <button class="almost_button pointer hover-bg-washed-blue bg-animate br-100 bg-transparent b--transparent" secret>&nbsp;&nbsp;&nbsp;</button>
         </div>
-
-        {{ partial "consent.html" . }}
-
-        {{ block "footer" . }}
-            {{ partialCached "site-footer.html" . }}
         {{ end }}
 
-        {{ $general := resources.Get "js/general.js" | resources.Minify | resources.Fingerprint }}
-        <script src="{{ $general.Permalink }}" type="application/javascript"></script>
+        {{ block "footer" . }}
+            {{ partial "consent.html" . }}
+
+            {{ partialCached "site-footer.html" . }}
+        {{ end }}
 
         <span id="bot"></span>
     </body>

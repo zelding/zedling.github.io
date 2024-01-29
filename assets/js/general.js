@@ -121,7 +121,9 @@ document.getElementById("consent-overlay").addEventListener("click",function(e) 
 });
 
 let resetButton = document.getElementById('cookie_reset');
-resetButton.addEventListener('click', () => {
-    eraseCookie('consent-settings');
-    location.reload();
-});
+if (resetButton) {
+    resetButton.addEventListener('click', () => {
+        eraseCookie('consent-settings');
+        location.reload();
+    });
+}
