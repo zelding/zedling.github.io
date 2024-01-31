@@ -94,9 +94,11 @@ ready.then(async () => {
         //console.log(consentValue);
         setConsentInputs(consentValue);
         loadConsentScripts(consentValue);
+        btn_reset.style.display = 'flex';
     }
     else {
         notice.style.display = 'flex';
+        btn_reset.style.display = 'none';
     }
 
     if (btn_reset) {
@@ -109,6 +111,7 @@ ready.then(async () => {
     btn_save.addEventListener("click",() => {
         setConsentValue();
         acceptSomeConsentScripts(btn_save.dataset.consentvalue);
+        btn_reset.style.display = 'flex';
     });
 
     overlay.addEventListener("click",(e) => {
@@ -120,14 +123,16 @@ ready.then(async () => {
     document.querySelectorAll('.manage-consent')
             .forEach((el) => {
                 el.addEventListener("click",() => {
-                    document.getElementById('consent-overlay').classList.toggle('active');
+                    document.getElementById('consent-overlay')
+                            .classList.toggle('active');
                 });
             });
 
     document.querySelectorAll('.deny-consent')
             .forEach((el) => {
-                el.addEventListener("click",function() {
+                el.addEventListener("click",() => {
                     denyAllConsentScripts();
+                    btn_reset.style.display = 'flex';
                 });
             });
 
@@ -135,6 +140,7 @@ ready.then(async () => {
             .forEach((el) => {
                 el.addEventListener("click",() => {
                     acceptAllConsentScripts();
+                    btn_reset.style.display = 'flex';
                 });
             });
 
