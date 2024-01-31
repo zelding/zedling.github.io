@@ -2,6 +2,14 @@ const ready = new Promise((fn) => {
     document.addEventListener('DOMContentLoaded', fn,{ once:true });
 });
 
+const colors = new Array(16)
+    .fill(0)
+    .map((_, i) => i === 0
+        // black first
+        ? [0, 0, 0]
+        : [((1 << 8) * Math.random() | 0), ((1 << 8) * Math.random() | 0), ((1 << 8) * Math.random() | 0)]
+    );
+
 /*
  * @see https://stackoverflow.com/a/77111866/4308297
  */
@@ -13,18 +21,35 @@ function mod(a, b) {
     return ((a % z) + z) % z;
 }
 
-
-const canvas_to_graph = (x, w, h) => {
+const data_to_canvas = (i, w) => {
     return {
-        w: x.w - div(w, 2),
-        h: x.h - div(h, 2)
+        w: mod(i, w),
+        h: div(i, w)
     };
 };
 
-const data_to_canvas = (i, w, h) => {
+const canvas_to_graph = (x, w, h) => {
     return {
-        w: div(i, w),
-        h: mod(i, h)
+        w: x.w,
+        h: -1 * x.h
+    };
+};
+
+const data_in_boundary = (i, size, interval) => {
+    const x = data_to_canvas(i, size.w);
+    const y = canvas_to_graph(x, size.w, size.h);
+
+    //return {a: y.w, b: y.h};
+
+    const is = Math.abs(interval.start) + Math.abs(interval.end);
+    const ratio = {
+        w: is / size.w,
+        h: is / size.h
+    }
+
+    return {
+        a: Math.fround(x.w * ratio.w) ,
+        b: Math.fround(x.h * ratio.h)
     };
 };
 
@@ -35,44 +60,45 @@ const mandel_iterate = (z, c) => {
     };
 };
 
-ready.then(async () => {
-    let MAX_ITERATION = 10;
+const vlen = (z) => {
+    return Math.sqrt(Math.pow(z.a, 2) + Math.pow(z.b, 2))
+};
 
-    const canvas      = document.getElementById('mandel');
+ready.then(async () => {
+    let MAX_ITERATION = 100;
+
+    const canvas= document.getElementById('mandel');
+    const context = canvas.getContext("2d");
+
     const size = {
-        w: canvas.getAttribute('width')  | 320,
-        h: canvas.getAttribute('height') | 240
+        w: canvas.width,
+        h: canvas.height
     };
 
-    const context              = canvas.getContext("2d");
     const nextImage = context.createImageData(size.w, size.h);
+
+    console.debug(size, nextImage.data.length);
+
+    let zoom = {start: -2, end: 1};
 
     const renderNew = async () => {
         let pixels = [];
-        // data is apparently [r,g,b, r,g,b, r,g,b ...]
+        // data is apparently [r,g,b,a, r,g,b,a, r,g,b,a ...]
         for ( let i = 0; i < nextImage.data.length; i += 4) {
-             pixels.push(checkPixel(i));
+            const pixelNo = div(i,4);
+            let d = data_in_boundary(pixelNo, size, zoom);
+
+            if (d.a > zoom.end || d.a < zoom.start) {
+               //console.log(pixelNo, d);
+            }
+
+            pixels.push(checkPixel(d));
         }
 
-        Promise.all(pixels).then((results) => {
-            for ( let i = 0; i < results.length; i++) {
-                if(results[i] >= MAX_ITERATION) {
-                    console.debug("hit", canvas_to_graph(data_to_canvas(i, size.w, size.h), size.w, size.h));
-
-                    nextImage.data[i]     = 255;
-                    nextImage.data[i + 1] = 255;
-                    nextImage.data[i + 2] = 255;
-                }
-            }
-        });
+        return Promise.all(pixels);
     };
 
-    const checkPixel = async (i) => {
-        const ci = div(i, 4);
-
-        const canvasCoord = canvas_to_graph(data_to_canvas(ci, size.w, size.h), size.w, size.h);
-        const c = {a: canvasCoord.w, b: canvasCoord.h};
-
+    const checkPixel = async (c) => {
         let n = 0;
         let d = 0;
         let z = {a: 0, b: 0}
@@ -81,7 +107,7 @@ ready.then(async () => {
             // z^2 + c
             z = mandel_iterate(z, c);
 
-            d = Math.sqrt(Math.pow(z.a, 2) + Math.pow(z.b, 2));
+            d = vlen(z);
 
             if (d === 0) {
                 return MAX_ITERATION;
@@ -89,15 +115,30 @@ ready.then(async () => {
 
             n++;
         }
-        while(n <= MAX_ITERATION && d <= 2.0);
+        while(n <= MAX_ITERATION && d < 2.0);
+
+        //console.debug(c);
 
         return n;
     };
 
-    await renderNew();
+    await renderNew().then((results) => {
+        for ( let i = 0; i < results.length; i++) {
+            const n = results[i];
+
+            let ci = 0;
+            if(n < MAX_ITERATION) {
+                ci = mod(n,colors.length - 1) + 1;
+            }
+
+            nextImage.data[i * 4]     = colors[ci][0];
+            nextImage.data[i * 4 + 1] = colors[ci][1];
+            nextImage.data[i * 4 + 2] = colors[ci][2];
+            nextImage.data[i * 4 + 3] = 255;
+        }
+    });
 
     context.putImageData(nextImage, 0, 0);
-    context.drawImage(canvas, 0, 0);
 
     console.log("done");
 });
