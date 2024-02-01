@@ -28,28 +28,22 @@ const data_to_canvas = (i, w) => {
     };
 };
 
-const canvas_to_graph = (x, w, h) => {
-    return {
-        w: x.w,
-        h: -1 * x.h
-    };
-};
-
 const data_in_boundary = (i, size, interval) => {
     const x = data_to_canvas(i, size.w);
-    const y = canvas_to_graph(x, size.w, size.h);
 
-    //return {a: y.w, b: y.h};
+    const is = {
+        w: Math.abs(interval.w.start) + Math.abs(interval.h.end),
+        h: Math.abs(interval.w.start) + Math.abs(interval.h.end)
+    };
 
-    const is = Math.abs(interval.start) + Math.abs(interval.end);
     const ratio = {
-        w: is / size.w,
-        h: is / size.h
+        w: is.w / size.w,
+        h: is.h / size.h
     }
 
     return {
-        a: Math.fround(x.w * ratio.w) ,
-        b: Math.fround(x.h * ratio.h)
+        a:  (x.w - size.w / 2.0) * ratio.w,
+        b: -(x.h - size.h / 2.0) * ratio.h
     };
 };
 
@@ -64,8 +58,8 @@ const vlen = (z) => {
     return Math.sqrt(Math.pow(z.a, 2) + Math.pow(z.b, 2))
 };
 
-ready.then(async () => {
-    let MAX_ITERATION = 100;
+async function renderBrot () {
+    let MAX_ITERATION = 10;
 
     const canvas= document.getElementById('mandel');
     const context = canvas.getContext("2d");
@@ -79,18 +73,17 @@ ready.then(async () => {
 
     console.debug(size, nextImage.data.length);
 
-    let zoom = {start: -2, end: 1};
+    let zoom = {
+        w: {start: -8, end: 1},
+        h: {start: -1, end: 1}
+    };
 
-    const renderNew = async () => {
+    const renderNew = () => {
         let pixels = [];
         // data is apparently [r,g,b,a, r,g,b,a, r,g,b,a ...]
         for ( let i = 0; i < nextImage.data.length; i += 4) {
             const pixelNo = div(i,4);
-            let d = data_in_boundary(pixelNo, size, zoom);
-
-            if (d.a > zoom.end || d.a < zoom.start) {
-               //console.log(pixelNo, d);
-            }
+            const d = data_in_boundary(pixelNo, size, zoom);
 
             pixels.push(checkPixel(d));
         }
@@ -122,7 +115,7 @@ ready.then(async () => {
         return n;
     };
 
-    await renderNew().then((results) => {
+    renderNew().then((results) => {
         for ( let i = 0; i < results.length; i++) {
             const n = results[i];
 
@@ -134,11 +127,19 @@ ready.then(async () => {
             nextImage.data[i * 4]     = colors[ci][0];
             nextImage.data[i * 4 + 1] = colors[ci][1];
             nextImage.data[i * 4 + 2] = colors[ci][2];
-            nextImage.data[i * 4 + 3] = 255;
+            nextImage.data[i * 4 + 3] = !ci ? 0 : 255;
         }
     });
 
     context.putImageData(nextImage, 0, 0);
 
+    context.fillStyle = "#fff";
+    context.fillRect(div(size.w,2), 0, 1, size.h);
+    context.fillRect(0, div(size.h,2), size.w, 1);
+
     console.log("done");
+}
+
+ready.then(async () => {
+    ///await renderBrot();
 });
