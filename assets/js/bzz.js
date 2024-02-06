@@ -69,14 +69,14 @@ ready.then(async () => {
 
     if (bts.length) {
     for (let x=0;x<bts.length;x++) {
-        bts[x].addEventListener('mouseup', ab);
-        bts[x].addEventListener('mousedown ', az);
-        bts[x].addEventListener('touchstart', ab);
-        bts[x].addEventListener('touchend', az);
+        bts[x].addEventListener('mouseup', ab, { once:true, passive: true });
+        bts[x].addEventListener('mousedown ', az, { once:true, passive: true });
+        bts[x].addEventListener('touchstart', ab, { once:true, passive: true });
+        bts[x].addEventListener('touchend', az, { once:true, passive: true });
 
         if (bts[x].hasAttribute('secret')) {
-            bts[x].addEventListener('pointerenter', ab);
-            bts[x].addEventListener('pointerleave', az);
+            bts[x].addEventListener('pointerenter', ab, { once:true, passive: true });
+            bts[x].addEventListener('pointerleave', az, { once:true, passive: true });
         }
     }}
 });

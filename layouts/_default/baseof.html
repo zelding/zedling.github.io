@@ -73,6 +73,14 @@
         {{ block "javascripts" . }}
             {{ $bzz := resources.Get "js/bzz.js" | resources.Minify | resources.Fingerprint }}
             <script src="{{ $bzz.RelPermalink }}" type="application/javascript"></script>
+
+            {{ $langData := (index .Site.Data .Site.Language.Lang ) }}
+            <script>
+                const scripts = [];
+                {{ range $index, $item := (where $langData.consent.items "is_functional" false) }}
+                scripts[{{ $index }}] = "{{ $item.script_file }}{{ $item.id }}";
+                {{ end }}
+            </script>
             {{ $general := resources.Get "js/general.js" | resources.Minify | resources.Fingerprint }}
             <script src="{{ $general.RelPermalink }}" type="application/javascript"></script>
         {{ end }}

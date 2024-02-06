@@ -42,12 +42,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    const scripts = [];
-    {{ range $index, $item := (where $langData.consent.items "is_functional" false) }}
-    scripts[{{ $index }}] = "{{ $item.script_file }}{{ $item.id }}";
-    {{ end }}
-
-    window.scripts = scripts;
-</script>

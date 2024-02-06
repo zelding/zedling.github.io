@@ -1,3 +1,4 @@
+// cookies
 function createCookie(name,value,days) {
     let expires = "";
     if (days) {
@@ -23,6 +24,7 @@ function eraseCookie(name) {
     createCookie(name,"",-1);
 }
 
+//others
 function denyAllConsentScripts() {
     let consentValue = "";
     scripts.forEach(function(){
@@ -48,6 +50,7 @@ function acceptSomeConsentScripts(consentValue) {
 }
 
 function loadConsentScripts(consentValue) {
+
     scripts.forEach(function(value,key){
         //console.log('script'+key+' is set to ' +consentValue[key]+' and is file '+value);
         if(consentValue[key]) {
@@ -77,53 +80,72 @@ function setConsentValue() {
     document.getElementById("save-consent").dataset.consentvalue = consentValue;
 }
 
-document.querySelectorAll('#consent-overlay input:not([disabled])').forEach(function(el) {
-    el.checked = false;
-});
+//ready
+ready.then(async () => {
 
-if(readCookie('consent-settings')) {
-    const consentValue = readCookie('consent-settings').toString();
-    //console.log(consentValue);
-    setConsentInputs(consentValue);
-    loadConsentScripts(consentValue);
-}
-else {
-    document.getElementById('consent-notice').style.display = 'flex';
-}
+    const notice = document.getElementById("consent-notice");
+    const overlay = document.getElementById("consent-overlay");
 
-document.querySelectorAll('.manage-consent').forEach(function(el) {
-    el.addEventListener("click",function() {
-        document.getElementById('consent-overlay').classList.toggle('active');
-    });
-});
+    const btn_save = document.getElementById("save-consent")
+    const btn_reset = document.getElementById("cookie_reset");
 
-document.querySelectorAll('.deny-consent').forEach(function(el) {
-    el.addEventListener("click",function() {
-        denyAllConsentScripts();
-    });
-});
-
-document.querySelectorAll('.approve-consent').forEach(function(el) {
-    el.addEventListener("click",function() {
-        acceptAllConsentScripts();
-    });
-});
-
-document.getElementById("save-consent").addEventListener("click",function() {
-    setConsentValue();
-    acceptSomeConsentScripts(this.dataset.consentvalue);
-});
-
-document.getElementById("consent-overlay").addEventListener("click",function(e) {
-    if (!document.querySelector("#consent-overlay > div").contains(e.target)){
-        this.classList.toggle('active');
+    if(readCookie('consent-settings')) {
+        const consentValue = readCookie('consent-settings').toString();
+        //console.log(consentValue);
+        setConsentInputs(consentValue);
+        loadConsentScripts(consentValue);
+        btn_reset.style.display = 'flex';
     }
-});
+    else {
+        notice.style.display = 'flex';
+        btn_reset.style.display = 'none';
+    }
 
-let resetButton = document.getElementById('cookie_reset');
-if (resetButton) {
-    resetButton.addEventListener('click', () => {
-        eraseCookie('consent-settings');
-        location.reload();
+    if (btn_reset) {
+        btn_reset.addEventListener('click', () => {
+            eraseCookie('consent-settings');
+            location.reload();
+        });
+    }
+
+    btn_save.addEventListener("click",() => {
+        setConsentValue();
+        acceptSomeConsentScripts(btn_save.dataset.consentvalue);
+        btn_reset.style.display = 'flex';
     });
-}
+
+    overlay.addEventListener("click",(e) => {
+        if (!document.querySelector("#consent-overlay > div").contains(e.target)) {
+            this.classList.toggle('active');
+        }
+    });
+
+    document.querySelectorAll('.manage-consent')
+            .forEach((el) => {
+                el.addEventListener("click",() => {
+                    document.getElementById('consent-overlay')
+                            .classList.toggle('active');
+                });
+            });
+
+    document.querySelectorAll('.deny-consent')
+            .forEach((el) => {
+                el.addEventListener("click",() => {
+                    denyAllConsentScripts();
+                    btn_reset.style.display = 'flex';
+                });
+            });
+
+    document.querySelectorAll('.approve-consent')
+            .forEach((el) => {
+                el.addEventListener("click",() => {
+                    acceptAllConsentScripts();
+                    btn_reset.style.display = 'flex';
+                });
+            });
+
+    document.querySelectorAll('#consent-overlay input:not([disabled])')
+            .forEach((el) => {
+                el.checked = false;
+            });
+});

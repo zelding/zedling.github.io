@@ -18,6 +18,9 @@ st1: header_one
 st2: header_two
 
 random:
+    - s: 2024-01-30
+      e: |
+         svg debug grid, js javítások, cikk alapszerkezet
     - s: 2024-01-29
       e: |
         <p class="mv0"><span class="i">ez</span>&nbsp;az oldal</p>
