@@ -73,13 +73,8 @@
             {{ end }}
         </header>
 
-        <div class="w-100 w-third-l nested-copy-line-height lh-copy f4 nested-links bg-white-80 {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr4-l" "pl4-l" }}">
+        <div class="w-100 nested-copy-line-height lh-copy f4 nested-links bg-white-80 {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr4-l" "pl4-l" }}">
             {{- .Content -}}
-        </div>
-
-        <div class="w-two-thirds-l w-100 pl2-l">
-            <canvas id="mandel" width="512" height="512"
-                    class="w-100 bg-black white"></canvas>
         </div>
 
         <aside class="w-30-l mt6-l">

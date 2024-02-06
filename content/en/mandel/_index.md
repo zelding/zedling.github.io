@@ -1,8 +1,5 @@
 ---
-layout: single
-type: single
-
-title: Test page
+title: Poor mans compute shader
 description: Test page, please ignore
 header_text: Mandelbrot
 subtitle:
