@@ -1,4 +1,6 @@
 {{ define "javascripts" }}
+    <script src="https://unpkg.com/mathjs@12.3.1/lib/browser/math.js"></script>
+
     {{ $fract := resources.Get "js/fract.js" | resources.Minify | resources.Fingerprint }}
     <script src="{{ $fract.RelPermalink }}" type="application/javascript"></script>
 {{ end }}
@@ -71,11 +73,11 @@
             {{ end }}
         </header>
 
-        <div class="nested-copy-line-height lh-copy f4 nested-links bg-white-80 {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr4-l" "pl4-l" }} w-third-l">
+        <div class="w-100 w-third-l nested-copy-line-height lh-copy f4 nested-links bg-white-80 {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr4-l" "pl4-l" }}">
             {{- .Content -}}
         </div>
 
-        <div class="w-two-thirds w-100-l pa4 b--washed-blue">
+        <div class="w-two-thirds-l w-100 pl2-l b--washed-blue">
             <canvas id="mandel" width="512" height="512"
                     class="w-100 debug-sv bg-black white"></canvas>
         </div>

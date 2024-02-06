@@ -28,38 +28,27 @@ const data_to_canvas = (i, w) => {
     };
 };
 
+// @link https://math.stackexchange.com/questions/914823/shift-numbers-into-a-different-range
+//                        |, [s.w, s.h] [i.w.s, i.w.e]
 const data_in_boundary = (i, size, interval) => {
-    const x = data_to_canvas(i, size.w);
+    const t = data_to_canvas(i, size.w);
 
-    const is = {
-        w: Math.abs(interval.w.start) + Math.abs(interval.h.end),
-        h: Math.abs(interval.w.start) + Math.abs(interval.h.end)
-    };
+    const re = interval.w.start + ( (interval.w.end - interval.w.start) / size.w ) * (t.w)
+    const im = interval.h.start + ( (interval.h.end - interval.h.start) / size.h ) * (t.h)
 
-    const ratio = {
-        w: is.w / size.w,
-        h: is.h / size.h
-    }
-
-    return {
-        a:  (x.w - size.w / 2.0) * ratio.w,
-        b: -(x.h - size.h / 2.0) * ratio.h
-    };
+    return math.complex({re: re, im: -im});
 };
 
 const mandel_iterate = (z, c) => {
-    return {
-        a: Math.pow(z.a, 2) - Math.pow(z.b, 2) + c.a,
-        b: 2.0 * z.a * z.b + c.b
-    };
+    return math.add(math.pow(z, 2), c);
 };
 
 const vlen = (z) => {
-    return Math.sqrt(Math.pow(z.a, 2) + Math.pow(z.b, 2))
+    return Math.sqrt(Math.pow(z.re, 2) + Math.pow(z.im, 2))
 };
 
 async function renderBrot () {
-    let MAX_ITERATION = 10;
+    let MAX_ITERATION = 40;
 
     const canvas= document.getElementById('mandel');
     const context = canvas.getContext("2d");
@@ -71,11 +60,9 @@ async function renderBrot () {
 
     const nextImage = context.createImageData(size.w, size.h);
 
-    console.debug(size, nextImage.data.length);
-
     let zoom = {
-        w: {start: -8, end: 1},
-        h: {start: -1, end: 1}
+        w: {start: -1.87, end: 0.67},
+        h: {start: -1.2, end: 1.2}
     };
 
     const renderNew = () => {
@@ -94,7 +81,7 @@ async function renderBrot () {
     const checkPixel = async (c) => {
         let n = 0;
         let d = 0;
-        let z = {a: 0, b: 0}
+        let z = math.complex(0, 0);
 
         do {
             // z^2 + c
@@ -102,44 +89,38 @@ async function renderBrot () {
 
             d = vlen(z);
 
-            if (d === 0) {
-                return MAX_ITERATION;
-            }
-
             n++;
         }
-        while(n <= MAX_ITERATION && d < 2.0);
+        while(n < MAX_ITERATION && d < 2.0);
 
-        //console.debug(c);
-
-        return n;
+        return [n, d < 2.0];
     };
 
     renderNew().then((results) => {
         for ( let i = 0; i < results.length; i++) {
-            const n = results[i];
+            const n = results[i][0];
 
             let ci = 0;
-            if(n < MAX_ITERATION) {
+            if(!results[i][1]) {
                 ci = mod(n,colors.length - 1) + 1;
             }
 
             nextImage.data[i * 4]     = colors[ci][0];
             nextImage.data[i * 4 + 1] = colors[ci][1];
             nextImage.data[i * 4 + 2] = colors[ci][2];
-            nextImage.data[i * 4 + 3] = !ci ? 0 : 255;
+            nextImage.data[i * 4 + 3] = 255;
         }
+
+        context.putImageData(nextImage, 0, 0);
+
+        context.fillStyle = "#fff";
+        context.fillRect(div(size.w,2), 0, 1, size.h);
+        context.fillRect(0, div(size.h,2), size.w, 1);
     });
-
-    context.putImageData(nextImage, 0, 0);
-
-    context.fillStyle = "#fff";
-    context.fillRect(div(size.w,2), 0, 1, size.h);
-    context.fillRect(0, div(size.h,2), size.w, 1);
 
     console.log("done");
 }
 
 ready.then(async () => {
-    ///await renderBrot();
+    await renderBrot();
 });

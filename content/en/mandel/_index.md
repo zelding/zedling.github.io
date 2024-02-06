@@ -4,9 +4,9 @@ type: single
 
 title: Test page
 description: Test page, please ignore
-header_text: TST
+header_text: Mandelbrot
 subtitle:
-    first: Test page
+    first: Testing your cpu
     second: please ignore
     third: or don't
 
