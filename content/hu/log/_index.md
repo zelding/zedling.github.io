@@ -18,6 +18,10 @@ st1: header_one
 st2: header_two
 
 random:
+    - s: 2024-02-06
+      e: |
+         <a title="én mondtam :D" href="/mandel">A fraktál</a>
+      url: https://github.com/zelding/zelding.github.io/commit/ab2f758fc5f5d9bc5e89c255c2dbabedf71a543a
     - s: 2024-01-30
       e: |
          svg debug grid, js javítások, cikk alapszerkezet

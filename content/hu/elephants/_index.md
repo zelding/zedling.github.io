@@ -38,7 +38,7 @@ questions:
 
 random:
     - s: |
-         Kéne ide egy fraktál <span class="c">Még nincs, gyere vissza később</span>
+         Kéne ide egy fraktál <span class="c">VAN!, csekkold meg a Log-ot</span>
       qc: [kthx]
       e: |
          Valahová.
