@@ -16,6 +16,8 @@ st1: header_one
 st2: header_two
 
 random:
+    - s: 2024-02-08
+      e: Changed Mutagen.io to Infection.io (got confused) 
     - s: 2024-02-06
       e: |
          <a title="as promised to myself" href="/mandel">The fractal</a>

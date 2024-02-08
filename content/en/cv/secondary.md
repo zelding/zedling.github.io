@@ -8,6 +8,7 @@ sitemap:
 
 - Rabbitmq
 - Obsidian
+- TDD + BDD
 - C#, MsSQL, NuGet
     - basic (FF) neural nets
     - Visual Studio

@@ -12,7 +12,7 @@ sitemap:
 - Valami agilis *
 - ULAM / SplaT
 - Code quality tools
-  - PHPStan, CodeSniffer, Mutagen.io stb
+  - PHPStan, CodeSniffer, Infection.io stb
 - Mathlab / LateX
     - Juniper
 - Minikube, k3s, k8s, openshift

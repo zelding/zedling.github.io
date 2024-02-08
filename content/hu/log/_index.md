@@ -18,6 +18,8 @@ st1: header_one
 st2: header_two
 
 random:
+    - s: 2024-02-08
+      e: Mutagen.io -t Infection.io -ra cseréltem (összekevertem őket) 
     - s: 2024-02-06
       e: |
          <a title="én mondtam :D" href="/mandel">A fraktál</a>

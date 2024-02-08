@@ -8,6 +8,7 @@ sitemap:
 
 - Rabbitmq
 - Obsidian
+- TDD + BDD
 - C#, MsSQL, NuGet
     - egyszerű (FF) neuron hálók
     - Visual Studio
