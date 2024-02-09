@@ -1,14 +1,14 @@
+/** @see https://stackoverflow.com/a/7218469/4308297 */
+const debug = false;
+
 const ready = new Promise((fn) => {
+    if (debug && window.console && window.console.profile) {
+        let label = "mandel_bench";
+        console.profile(label);
+    }
+
     document.addEventListener('DOMContentLoaded', fn,{ once:true });
 });
-
-const colors = new Array(16)
-    .fill(0)
-    .map((_, i) => i === 0
-        // black first
-        ? [0, 0, 0]
-        : [((1 << 8) * Math.random() | 0), ((1 << 8) * Math.random() | 0), ((1 << 8) * Math.random() | 0)]
-    );
 
 /*
  * @see https://stackoverflow.com/a/77111866/4308297
@@ -139,7 +139,7 @@ const data_in_boundary = (i, size, interval) => {
     return new C(re, -im);
 };
 
-async function renderBrot () {
+async function renderBrot (colors) {
     let MAX_ITERATION = 30;
 
     const canvas= document.getElementById('mandel');
@@ -201,10 +201,21 @@ async function renderBrot () {
         context.fillRect(div(size.w,2), 0, 1, size.h);
         context.fillRect(0, div(size.h,2), size.w, 1);
     });
-
-    console.log("done");
 }
 
 ready.then(async () => {
-    await renderBrot();
+    const colors = new Array(16)
+        .fill(0)
+        .map((_, i) => i === 0
+            // black first
+                       ? [0, 0, 0]
+                       : [((1 << 8) * Math.random() | 0), ((1 << 8) * Math.random() | 0), ((1 << 8) * Math.random() | 0)]
+        );
+
+
+    await renderBrot(colors);
+
+    if (debug && window.console && window.console.profile) {
+        console.profileEnd();
+    }
 });
