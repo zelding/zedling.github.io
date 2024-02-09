@@ -18,6 +18,9 @@ st1: header_one
 st2: header_two
 
 random:
+    - s: 2024-08-09
+      e: vanilla JS classes ?!
+      url: https://github.com/zelding/zelding.github.io/commit/6a47e7d21307293ed92d306be5e53829f184772c          
     - s: 2024-02-08
       e: Mutagen.io -t Infection.io -ra cseréltem (összekevertem őket) 
     - s: 2024-02-06
