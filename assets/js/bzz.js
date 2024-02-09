@@ -36,9 +36,8 @@ const hhh = (p, cb, bd, dd) => {
     setTimeout(bzz, d, p, bd, dd);
 };
 
-const cl = ['bzz', 'kthx'];
+const cl = ['bzz', 'kthx', 'bgf'];
 const ab = () => {
-    console.log("asd");
     for(let i = 0; i<cl.length;i++) {
         let p = document.getElementsByClassName(cl[i]);
 

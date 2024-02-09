@@ -11,15 +11,17 @@ subtitle:
 
 bzz:
     h2: [kthx]
-
+    dd: [bgf]
+    
 sitemap:
     changefreq: weekly
     priority: .3
 
 st1: credits_one
 questions:
-   - q: https://favicon.io
-     a: Könyvelés és vendéglátás
+   - q: Favicon.io
+     a: manifest.json
+     url: https://favicon.io
    - q: |
         NagZ, kzd, Pite
      qc: []
@@ -31,12 +33,20 @@ questions:
           <a href="//www.billyargel.com" target="_blank" rel="nofollow">Billy Argel</a>, 
           <a href="//dejavu-fonts.github.io" target="_blank" rel="nofollow">DejaVu</a>
         </p>
-   - q: Ananke Theme & template
+   - q: Ananke Theme & templét
      a: |
-        <a href="//github.com/theNewDynamic/gohugo-theme-ananke" target="_blank" rel="nofollow">Bud Parr</a>
+        Bud Parr
+     url: //github.com/theNewDynamic/gohugo-theme-ananke
+   - q: |
+        Stackexchange <span class="c">I left links in the source code</span> 
+     qc: [kthx]
+     a: |
+        In general :D
+     url: https://stackexchange.com
    - q: Hugo.io
      a: |
-        <a href="//gohugo.io" target="_blank" rel="nofollow">Hugo</a>
+        A klassz motorért
+     url: https://hugo.io
    - q: Github
-     a: Thx
+     a: vendéglátás
 ---

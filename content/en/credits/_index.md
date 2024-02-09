@@ -11,6 +11,7 @@ subtitle:
 
 bzz:
     h2: [kthx]
+    dd: [bgf]
 
 sitemap:
     changefreq: weekly
@@ -19,8 +20,9 @@ sitemap:
 st1: credits_one
 st2: credits_two
 questions:
-    - q: https://favicon.io
-      a: Catering and accounting
+    - q: Favicon.io
+      a: manifest.json
+      url: https://favicon.io
     - q: |
          NagZ, kzd, Pite
       qc: []
@@ -34,10 +36,19 @@ questions:
          </p>
     - q: Ananke Theme & template
       a: |
-         <a href="//github.com/theNewDynamic/gohugo-theme-ananke" target="_blank" rel="nofollow">Bud Parr</a>
+         Bud Parr
+      url: //github.com/theNewDynamic/gohugo-theme-ananke
     - q: Hugo.io
       a: |
+         For the cool engine
+      url: https://hugo.io
+    - q: |
+        Stackexchange <span class="c">I left links in the source code</span> 
+      qc: [kthx]
+      a: |
+        In general :D
+      url: https://stackexchange.com
          <a href="//gohugo.io" target="_blank" rel="nofollow">Hugo</a>
     - q: Github
-      a: Thx
+      a: Catering
 ---

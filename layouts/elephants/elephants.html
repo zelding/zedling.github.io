@@ -27,9 +27,11 @@
                 <h3 class="ph4">{{ i18n $.Params.st1 }}</h3>
                 <dl class="lh-title pa4 mt0">
                     {{ range $data := . }}
-                        <dt class="f6 b mt2 {{ with $data.qc }}{{ range $i := . }}{{ $i }}{{ end }} {{ end }}">{{ $data.q | safeHTML }}</dt>
+                        <dt class="f6 b mt2 {{ with $data.qc }}{{ range $i := . }}{{ $i }}{{ end }} {{ end }}">
+                            {{ $data.q | safeHTML }}
+                        </dt>
                         <dd class="ml0 mb1 relative">
-                            <span class="flex flex-wrap justify-between">
+                            <span class="flex flex-wrap justify-between {{ with $.Params.bzz.dd }}{{ range $i := . }}{{ $i }}{{ end }}{{ end }}">
                                 {{- $data.a | safeHTML }}
                                 {{ with $data.url }}
                                 <a class="absolute top-0 right--1 link dib link-transition tr" target="_blank"
