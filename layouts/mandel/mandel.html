@@ -1,5 +1,10 @@
 {{ define "javascripts" }}
-<script src="https://unpkg.com/mathjs@12.3.1/lib/browser/math.js"></script>
+
+<!--
+    @see https://security.snyk.io/package/npm/mathjs
+
+    ~~mathjs@12.3.1/lib/browser/math.js~~
+-->
 
 {{ $fract := resources.Get "js/fract.js" | resources.Minify | resources.Fingerprint }}
 <script src="{{ $fract.RelPermalink }}" type="application/javascript"></script>
