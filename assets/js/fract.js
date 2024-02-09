@@ -74,20 +74,67 @@ class C {
     }
 }
 
+class Point {
+    x = 0;
+    y = 0;
+
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+class Size {
+    width = 0;
+    height= 0;
+
+    constructor(w, h) {
+        this.width  = w;
+        this.height = h;
+    }
+}
+
+class Interval {
+    start = 0.0;
+    end   = 0.0;
+
+    constructor(s, e) {
+        this.start = s;
+        this.end   = e;
+    }
+}
+
+class Interval2D {
+    x = new Interval(0, 0);
+    y = new Interval(0, 0);
+
+    constructor(x1, x2, y1, y2) {
+        this.x = new Interval(x1, x2);
+        this.y = new Interval(y1, y2);
+    }
+}
+
 const data_to_canvas = (i, w) => {
-    return {
-        w: mod(i, w),
-        h: div(i, w)
-    };
+    return new Point(
+        mod(i, w),
+        div(i, w)
+    );
 };
 
 // @link https://math.stackexchange.com/questions/914823/shift-numbers-into-a-different-range
 //                        |, [s.w, s.h] [i.w.s, i.w.e]
+/**
+ *
+ * @param i :number
+ * @param size :Size
+ * @param interval : Interval2D
+ * @returns {C}
+ */
 const data_in_boundary = (i, size, interval) => {
-    const t = data_to_canvas(i, size.w);
+    const point = data_to_canvas(i, size.width);
 
-    const re = interval.w.start + ( (interval.w.end - interval.w.start) / size.w ) * (t.w)
-    const im = interval.h.start + ( (interval.h.end - interval.h.start) / size.h ) * (t.h)
+    const re = interval.x.start + ( (interval.x.end - interval.x.start) / size.width )  * (point.x)
+    const im = interval.y.start + ( (interval.y.end - interval.y.start) / size.height ) * (point.y)
 
     return new C(re, -im);
 };
@@ -98,17 +145,11 @@ async function renderBrot () {
     const canvas= document.getElementById('mandel');
     const context = canvas.getContext("2d");
 
-    const size = {
-        w: canvas.width,
-        h: canvas.height
-    };
+    const size = new Size(canvas.width, canvas.height);
 
-    const nextImage = context.createImageData(size.w, size.h);
+    const nextImage = context.createImageData(size.width, size.height);
 
-    let zoom = {
-        w: {start: -2.0, end: 1.0},
-        h: {start: -1.0, end: 1.0}
-    };
+    let zoom = new Interval2D(-2.0, 1, 1, -1);
 
     const renderNew = () => {
         let pixels = [];
