@@ -21,6 +21,59 @@ function mod(a, b) {
     return ((a % z) + z) % z;
 }
 
+class C {
+    re = 0.0;
+    im = 0.0;
+
+    constructor(re, im) {
+        this.re = re;
+        this.im = im;
+    }
+
+    static cross(a, b) {
+        return new C(
+            a.re * b.re - a.im * b.im,
+            a.im * b.re + a.re * b.im
+        );
+    }
+
+    // sanic
+    // @see https://www.geeksforgeeks.org/program-for-power-of-a-complex-number-in-olog-n/
+    pow(x) {
+        if (x === 0) {
+            return new C(0,0);
+        }
+
+        if (x === 1) {
+            return new C(this.re,this.im);
+        }
+
+        // Recursive call for n/2
+        const sq = this.pow(x / 2);
+
+        if (x % 2 === 0) {
+            return C.cross(sq, sq);
+        }
+
+        return C.cross(z, C.cross(sq, sq));
+    }
+
+    add(c) {
+        return new C(
+            this.re + c.re,
+            this.im + c.im
+        );
+    }
+
+    iterate(c) {
+        return this.pow(2).add(c);
+    }
+
+    length() {
+        return Math.sqrt(this.re * this.re + this.im * this.im);
+    }
+}
+
 const data_to_canvas = (i, w) => {
     return {
         w: mod(i, w),
@@ -36,19 +89,11 @@ const data_in_boundary = (i, size, interval) => {
     const re = interval.w.start + ( (interval.w.end - interval.w.start) / size.w ) * (t.w)
     const im = interval.h.start + ( (interval.h.end - interval.h.start) / size.h ) * (t.h)
 
-    return math.complex({re: re, im: -im});
-};
-
-const mandel_iterate = (z, c) => {
-    return math.add(math.pow(z, 2), c);
-};
-
-const vlen = (z) => {
-    return Math.sqrt(Math.pow(z.re, 2) + Math.pow(z.im, 2))
+    return new C(re, -im);
 };
 
 async function renderBrot () {
-    let MAX_ITERATION = 40;
+    let MAX_ITERATION = 30;
 
     const canvas= document.getElementById('mandel');
     const context = canvas.getContext("2d");
@@ -61,8 +106,8 @@ async function renderBrot () {
     const nextImage = context.createImageData(size.w, size.h);
 
     let zoom = {
-        w: {start: -1.87, end: 0.67},
-        h: {start: -1.2, end: 1.2}
+        w: {start: -2.0, end: 1.0},
+        h: {start: -1.0, end: 1.0}
     };
 
     const renderNew = () => {
@@ -80,14 +125,12 @@ async function renderBrot () {
 
     const checkPixel = async (c) => {
         let n = 0;
-        let d = 0;
-        let z = math.complex(0, 0);
+        let d = 0.0;
+        let z = new C(0, 0);
 
         do {
-            // z^2 + c
-            z = mandel_iterate(z, c);
-
-            d = vlen(z);
+            z = z.iterate(c);
+            d = z.length();
 
             n++;
         }
