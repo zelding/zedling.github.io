@@ -10,6 +10,16 @@ const ready = new Promise((fn) => {
     document.addEventListener('DOMContentLoaded', fn,{ once:true });
 });
 
+const newColors = async () => {
+    return new Array(16)
+        .fill(0)
+        .map((_, i) => i === 0
+            // black first
+                       ? [0, 0, 0]
+                       : [((1 << 8) * Math.random() | 0), ((1 << 8) * Math.random() | 0), ((1 << 8) * Math.random() | 0)]
+        );
+};
+
 /*
  * @see https://stackoverflow.com/a/77111866/4308297
  */
@@ -139,17 +149,20 @@ const data_in_boundary = (i, size, interval) => {
     return new C(re, -im);
 };
 
-async function renderBrot (colors) {
+/**
+ *
+ * @param context {CanvasRenderingContext2D}
+ * @param colors {array<array<int>>}
+ * @param zoom {Interval2D}
+ * @param size {Size}
+ * @returns {Promise<void>}
+ */
+async function renderBrot (context, colors, zoom, size) {
+    console.error(colors);
+
     let MAX_ITERATION = 30;
 
-    const canvas= document.getElementById('mandel');
-    const context = canvas.getContext("2d");
-
-    const size = new Size(canvas.width, canvas.height);
-
     const nextImage = context.createImageData(size.width, size.height);
-
-    let zoom = new Interval2D(-2.0, 1, 1, -1);
 
     const renderNew = () => {
         let pixels = [];
@@ -180,7 +193,7 @@ async function renderBrot (colors) {
         return [n, d < 2.0];
     };
 
-    renderNew().then((results) => {
+    return renderNew().then((results) => {
         for ( let i = 0; i < results.length; i++) {
             const n = results[i][0];
 
@@ -204,18 +217,57 @@ async function renderBrot (colors) {
 }
 
 ready.then(async () => {
-    const colors = new Array(16)
-        .fill(0)
-        .map((_, i) => i === 0
-            // black first
-                       ? [0, 0, 0]
-                       : [((1 << 8) * Math.random() | 0), ((1 << 8) * Math.random() | 0), ((1 << 8) * Math.random() | 0)]
+    const canvas= document.getElementById('mandel');
+    const controlForm = document.getElementById('controls');
+
+    let asd = 0;
+    canvas.addEventListener('mousemove', (e) => {
+        if (asd % 8) {
+            console.log(e.offsetX, e.offsetY);
+            asd++;
+        }
+    });
+
+    const controls = {
+        'x-start': document.getElementById('x-start'),
+        'x-end'  : document.getElementById('x-end'),
+        'y-start': document.getElementById('y-start'),
+        'y-end'  : document.getElementById('y-end'),
+    };
+
+    let colors = null;
+
+    const size = new Size(canvas.width, canvas.height);
+
+    let zoom = new Interval2D(-2.0,1, -1, 1);
+
+    controlForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        colors = await newColors();
+
+        zoom = new Interval2D(
+            Math.fround(controls["x-start"].value) ?? -2.0,
+            Math.fround(controls["x-end"].value)   ??  1,
+            Math.fround(controls["y-start"].value) ?? -1,
+            Math.fround(controls["y-end"].value)   ??  1
         );
 
+        await renderBrot(ctx, colors, zoom, size);
 
-    await renderBrot(colors);
+        return false;
+    });
+
+    const ctx = canvas.getContext("2d");
+
+    colors = await newColors();
+
+    let a = await renderBrot(ctx, colors, zoom, size);
 
     if (debug && window.console && window.console.profile) {
         console.profileEnd();
     }
+
+    return a;
 });
