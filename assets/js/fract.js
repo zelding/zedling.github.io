@@ -89,8 +89,8 @@ class Point {
     y = 0;
 
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        this.x = Math.max(0, x);
+        this.y = Math.max(0, y);
     }
 }
 
@@ -99,8 +99,8 @@ class Size {
     height= 0;
 
     constructor(w, h) {
-        this.width  = w;
-        this.height = h;
+        this.width  = Math.max(0, w);
+        this.height = Math.max(0, h);
     }
 }
 
@@ -135,14 +135,12 @@ const data_to_canvas = (i, w) => {
 //                        |, [s.w, s.h] [i.w.s, i.w.e]
 /**
  *
- * @param i :number
+ * @param point :Point
  * @param size :Size
  * @param interval : Interval2D
  * @returns {C}
  */
-const data_in_boundary = (i, size, interval) => {
-    const point = data_to_canvas(i, size.width);
-
+const data_in_boundary = (point, size, interval) => {
     const re = interval.x.start + ( (interval.x.end - interval.x.start) / size.width )  * (point.x)
     const im = interval.y.start + ( (interval.y.end - interval.y.start) / size.height ) * (point.y)
 
@@ -158,9 +156,7 @@ const data_in_boundary = (i, size, interval) => {
  * @returns {Promise<void>}
  */
 async function renderBrot (context, colors, zoom, size) {
-    console.error(colors);
-
-    let MAX_ITERATION = 30;
+    let MAX_ITERATION = 100;
 
     const nextImage = context.createImageData(size.width, size.height);
 
@@ -168,8 +164,8 @@ async function renderBrot (context, colors, zoom, size) {
         let pixels = [];
         // data is apparently [r,g,b,a, r,g,b,a, r,g,b,a ...]
         for ( let i = 0; i < nextImage.data.length; i += 4) {
-            const pixelNo = div(i,4);
-            const d = data_in_boundary(pixelNo, size, zoom);
+            const point = data_to_canvas(div(i,4), size.width);
+            const d = data_in_boundary(point, size, zoom);
 
             pixels.push(checkPixel(d));
         }
@@ -211,41 +207,64 @@ async function renderBrot (context, colors, zoom, size) {
         context.putImageData(nextImage, 0, 0);
 
         context.fillStyle = "#fff";
-        context.fillRect(div(size.w,2), 0, 1, size.h);
-        context.fillRect(0, div(size.h,2), size.w, 1);
+        context.fillRect(div(size.width,2), 0, 1, size.height);
+        context.fillRect(0, div(size.height,2), size.width, 1);
     });
 }
 
 ready.then(async () => {
-    const canvas= document.getElementById('mandel');
+    const canvas      = document.getElementById('mandel');
     const controlForm = document.getElementById('controls');
-
-    let asd = 0;
-    canvas.addEventListener('mousemove', (e) => {
-        if (asd % 8) {
-            console.log(e.offsetX, e.offsetY);
-            asd++;
-        }
-    });
-
     const controls = {
         'x-start': document.getElementById('x-start'),
         'x-end'  : document.getElementById('x-end'),
         'y-start': document.getElementById('y-start'),
         'y-end'  : document.getElementById('y-end'),
     };
+    const size    = new Size(canvas.width, canvas.height);
+    const relSize = new Size(canvas.offsetWidth, canvas.offsetHeight);
+    const ctx           = canvas.getContext("2d");
 
-    let colors = null;
-
-    const size = new Size(canvas.width, canvas.height);
-
+    let colors    = await newColors();
     let zoom = new Interval2D(-2.0,1, -1, 1);
+
+    let asd = 0;
+    /*canvas.addEventListener('mousemove', (e) => {
+        const point = new Point(e.offsetX, e.offsetY);
+
+        const d = data_in_boundary(point, relSize, zoom);
+
+        console.log(size, point, d);
+
+        zoom = new Interval2D(
+            Math.fround(controls["x-start"].value) * 0.8,
+            Math.fround(controls["x-end"].value)   * 0.8,
+            Math.fround(controls["y-start"].value) * 0.8,
+            Math.fround(controls["y-end"].value)   * 0.8
+        );
+
+        renderBrot(ctx, colors, zoom, size);
+    });*/
+
+    canvas.addEventListener('click', (e) => {
+        const point = new Point(e.offsetX, e.offsetY);
+        const d = data_in_boundary(point, relSize, zoom);
+
+        zoom = new Interval2D(
+            d.re * 0.85,
+            d.re * 1.15,
+            d.im * 0.85,
+            d.im * 1.15
+        );
+
+        renderBrot(ctx, colors, zoom, size);
+    });
 
     controlForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        colors = await newColors();
+        //colors = await newColors();
 
         zoom = new Interval2D(
             Math.fround(controls["x-start"].value) ?? -2.0,
@@ -258,10 +277,6 @@ ready.then(async () => {
 
         return false;
     });
-
-    const ctx = canvas.getContext("2d");
-
-    colors = await newColors();
 
     let a = await renderBrot(ctx, colors, zoom, size);
 
