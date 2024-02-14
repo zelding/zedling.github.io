@@ -73,7 +73,7 @@ async function renderBrot (context, colors, zoom, size) {
         context.putImageData(nextImage, 0, 0);
 
         context.fillStyle = "#fff";
-        context.fillRect(div(size.width,2), 0, 1, size.height);
+        context.fillRect(div(size.width,3) * 2, 0, 1, size.height);
         context.fillRect(0, div(size.height,2), size.width, 1);
     });
 }
