@@ -1,6 +1,10 @@
 {{ define "javascripts" }}
+
+{{ range resources.Match "js/modules/*.js" }}
+<script src="{{ .RelPermalink }}" type="module"></script>
+{{ end }}
 {{ $fract := resources.Get "js/fract.js" | resources.Minify | resources.Fingerprint }}
-<script src="{{ $fract.RelPermalink }}" type="application/javascript"></script>
+<script src="{{ $fract.RelPermalink }}" type="module"></script>
 {{ end }}
 
 {{ define "header" }}
@@ -76,12 +80,16 @@
             <div class="measure dib w-100">
                 <button class="btn">Gen</button>
             </div>
+
+            <div id="res" class="measure dib w-100">
+                <button type="button" class="btn">Res</button>
+            </div>
         </form>
     </div>
 
     <div class="w-two-thirds-l w-100 pl2-l">
         <canvas id="mandel"
-                width="999" height="666"
+                width="300" height="200"
                 class="w-100 bg-black white"></canvas>
     </div>
 

@@ -22,3 +22,4 @@ go.work
 public/*
 resources/*
 .idea
+hugo_stats.json

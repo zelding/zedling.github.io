@@ -64,6 +64,10 @@ disableKinds = ["taxonomy"]
     url = "https://www.youtube.com/channel/UCccmWYLb5gCh1t5GeTDliNw"
 
 [build]
+    noJSConfigInAssets   = false
+    useResourceCacheWhen = 'fallback'
+    [build.buildStats]
+        enable = true
     [[build.cacheBusters]]
         source = 'assets/.*\.(js|ts|jsx|tsx)'
         target = '(js|scripts|javascript)'
