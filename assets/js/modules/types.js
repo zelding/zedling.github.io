@@ -56,7 +56,7 @@ export class C extends Biggable{
             return C.cross(sq, sq);
         }
 
-        return C.cross(z, C.cross(sq, sq));
+        return C.cross(this, C.cross(sq, sq));
     }
 
     /**
