@@ -1,9 +1,13 @@
-import {BigNumber} from "./bn.js";
+import BigNumber from "./bn.js";
 
 class Biggable {
     _big = false;
     constructor (big = false) {
         this._big = big;
+    }
+
+    isBig() {
+        return this._big;
     }
 }
 
@@ -24,17 +28,24 @@ export class C extends Biggable{
         }
     }
 
+    /**
+     * @param a :C
+     * @param b :C
+     * @returns {C}
+     */
     static cross(a, b) {
         if (this._big ) {
             return new C(
                 a.re.times(b.re).minus(a.im.times(b.im)),
-                a.im.times(b.re).plus(a.re.times(b.im))
+                a.im.times(b.re).plus(a.re.times(b.im)),
+                true
             );
         }
 
         return new C(
             a.re * b.re - a.im * b.im,
-            a.im * b.re + a.re * b.im
+            a.im * b.re + a.re * b.im,
+            false
         );
     }
 
@@ -42,11 +53,11 @@ export class C extends Biggable{
     // @see https://www.geeksforgeeks.org/program-for-power-of-a-complex-number-in-olog-n/
     pow(x) {
         if (x === 0) {
-            return new C(0,0);
+            return new C(0,0, this._big);
         }
 
         if (x === 1) {
-            return new C(this.re,this.im);
+            return new C(this.re,this.im, this._big);
         }
 
         // Recursive call for n/2
@@ -60,7 +71,6 @@ export class C extends Biggable{
     }
 
     /**
-     *
      * @param c :C
      * @returns {C}
      */
@@ -68,26 +78,34 @@ export class C extends Biggable{
         if (this._big) {
             return new C(
                 this.re.plus(c.re),
-                this.im.plus(c.im)
+                this.im.plus(c.im),
+                true
             );
         }
 
         return new C(
             this.re + c.re,
-            this.im + c.im
+            this.im + c.im,
+            false
         );
     }
 
+    /**
+     * @param c :C
+     * @returns {C}
+     */
     iterate(c) {
         return this.pow(2).add(c);
     }
 
     length() {
         if (this._big) {
-            return this.re.times(this.re).plus(this.im.times(this.im)).sqrt().toNumber();
+            return this.re.times(this.re)
+                       .plus(this.im.times(this.im))
+                       .sqrt().toNumber();
         }
 
-        return (this.re * this.re + this.im * this.im) ** 1/2;
+        return (this.re * this.re + this.im * this.im) ** 1.0/2.0;
     }
 }
 
@@ -111,15 +129,15 @@ export class Size {
     }
 }
 
-class Interval extends Biggable{
+class Interval extends Biggable {
     start;
     end;
 
     constructor(s, e, big= false) {
         super(big);
         if(this._big) {
-            this.start = BigNumber.BigNumber(s);
-            this.end   = BigNumber.BigNumber(e);
+            this.start = new BigNumber(s);
+            this.end   = new BigNumber(e);
         }
         else {
             this.start = s;
@@ -128,14 +146,14 @@ class Interval extends Biggable{
     }
 }
 
-export class Interval2D extends Biggable{
+export class Interval2D extends Biggable {
     /** @var Interval */
     x;
     /** @var Interval */
     y;
 
     constructor(x1, x2, y1, y2, big = false) {
-        super(big); // I don't need it atm, but might be useful later
+        super(big);
         this.x = new Interval(x1, x2, big);
         this.y = new Interval(y1, y2, big);
     }

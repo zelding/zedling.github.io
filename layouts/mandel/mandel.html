@@ -77,19 +77,23 @@
                 <small id="y-end-desc" class="w-100 f6 black-60 dib mb2">Maximum value for Y.</small>
             </div>
 
-            <div class="measure dib w-100">
-                <button class="btn">Gen</button>
+            <div class="measure dib pb2 w-100">
+                <button type="submit" class="btn">Generate</button>
+            </div>
+
+            <div class="measure dib pb2 w-100">
+                <input id="big" title="use big lib" type="checkbox" name="big" value="1" />
             </div>
 
             <div id="res" class="measure dib w-100">
-                <button type="button" class="btn">Res</button>
+                <button type="button" class="btn">Reset</button>
             </div>
         </form>
     </div>
 
     <div class="w-two-thirds-l w-100 pl2-l">
         <canvas id="mandel"
-                width="300" height="200"
+                width="600" height="400"
                 class="w-100 bg-black white"></canvas>
     </div>
 

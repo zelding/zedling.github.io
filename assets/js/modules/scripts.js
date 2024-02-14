@@ -1,4 +1,4 @@
-import {mod, div}                from "./math.js";
+import {mod, div}                   from "./math.js";
 import {C, Point, Size, Interval2D} from './types.js'
 
 export const newColors = async (n = 16) => {
@@ -34,15 +34,19 @@ export const data_to_canvas = (i, w) => {
  * @returns {C}
  */
 export const data_in_boundary = (point, size, interval) => {
-    if (interval._big) {
-        const re = interval.x.start.plus(interval.x.end.minus(interval.x.start).dividedBy(size.width).times(point.x));
-        const im = interval.y.start.plus(interval.y.end.minus(interval.y.start).dividedBy(size.height).times(point.y));
+    if (interval.isBig()) {
+        const re = interval.x.start.plus(
+            interval.x.end.minus(interval.x.start).dividedBy(size.width).times(point.x)
+        );
+        const im = interval.y.start.plus(
+            interval.y.end.minus(interval.y.start).dividedBy(size.height).times(point.y)
+        );
 
-        return new C(re, -im);
+        return new C(re, im.times(-1), true);
     }
 
     const re = interval.x.start + ( (interval.x.end - interval.x.start) / size.width )  * (point.x)
     const im = interval.y.start + ( (interval.y.end - interval.y.start) / size.height ) * (point.y)
 
-    return new C(re, -im);
+    return new C(re, -im, false);
 };
