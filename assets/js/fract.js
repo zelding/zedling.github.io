@@ -1,6 +1,6 @@
-import {C, Point, Size, Interval2D} from './modules/types.js';
+import {C, Point, Size, Interval2D}                  from "./modules/types.js";
 import {newColors, data_to_canvas, data_in_boundary} from "./modules/scripts.js";
-import {mod, div}                   from "./modules/math.js";
+import {mod, div}                                    from "./modules/math.js";
 
 /** @see https://stackoverflow.com/a/7218469/4308297 */
 const debug = true;
@@ -15,6 +15,12 @@ const ready = new Promise((fn) => {
     document.addEventListener('DOMContentLoaded', fn,{ once:true });
 });
 
+/**
+ * @param length :int
+ * @param size   :Size
+ * @param zoom   :Interval2D
+ * @returns {Promise<Awaited<(number|boolean)[]>[]>}
+ */
 const renderNew = async (length, size, zoom) => {
     let MAX_ITERATION = 60;
     let pixels = [];
@@ -29,6 +35,11 @@ const renderNew = async (length, size, zoom) => {
     return Promise.all(pixels);
 };
 
+/**
+ * @param c   :C
+ * @param max :int
+ * @returns {Promise<(number|boolean)[]>}
+ */
 const checkPixel = async (c, max= 50) => {
     let n = 0;
     let d = 0.0;
@@ -46,11 +57,11 @@ const checkPixel = async (c, max= 50) => {
 };
 
 /**
- * @param context {CanvasRenderingContext2D}
- * @param colors {array<array<int>>}
- * @param zoom {Interval2D}
- * @param size {Size}
- * @returns {Promise<void>}
+ * @param context :CanvasRenderingContext2D
+ * @param colors  :array<array<int>>
+ * @param zoom    :Interval2D
+ * @param size    :Size
+ * @returns {Promise<ImageData>}
  */
 async function renderBrot (context, colors, zoom, size) {
     const nextImage = context.createImageData(size.width, size.height);
@@ -73,13 +84,14 @@ async function renderBrot (context, colors, zoom, size) {
         context.fillRect(div(size.width,3) * 2, 0, 1, size.height);
         context.fillRect(0, div(size.height,2), size.width, 1);
 
-        return nextImage;
+        return context.getImageData(0, 0, size.width, size.height);
     });
 }
 
 ready.then(async () => {
     const canvas      = document.getElementById('mandel');
     const controlForm = document.getElementById('controls');
+    /** @var {array<HTMLElement|null>} */
     const controls = {
         'x-start': document.getElementById('x-start'),
         'x-end'  : document.getElementById('x-end'),
@@ -94,31 +106,34 @@ ready.then(async () => {
     const ctx           = canvas.getContext("2d", {willReadFrequently: true});
     let colors    = await newColors();
 
-    let zoomInterval  = new Interval2D(-2.5,1.5, -1.5, 1.5, BIG);
+    let zoomInterval  = new Interval2D(-2,1, -1, 1, BIG);
     let imageData = renderBrot(ctx, colors, zoomInterval, relSize);
 
     canvas.addEventListener('mousemove', (e) => {
+        //let x = e.offsetX / zoomInterval.x.length(),
+        //    y = e.offsetY / zoomInterval.y.length();
+
         const point = new Point(e.offsetX, e.offsetY);
-        const d = data_in_boundary(point, relSize, zoomInterval);
+        const d = data_in_boundary(point, size, zoomInterval);
+
+        const x = div(zoomInterval.x.length(), 4),
+              y = div(zoomInterval.y.length(), 4),
+              l = Math.sqrt(x*x + y*y);
+
+        controls["x-start"].value = (d.re - l / 2.0).toFixed(3);
+        controls["x-end"].value   = (d.re + l / 2.0).toFixed(3);
+        controls["y-start"].value = (d.im - l / 2.0).toFixed(3);
+        controls["y-end"].value   = (d.im + l / 2.0).toFixed(3);
 
         //const point_a = new Point(e.offsetX - relSize, e.offsetY);
 
         window.requestAnimationFrame(async () => {
-            //console.log(point,d,w);
+            const x0 = e.offsetX - div(zoomInterval.x.length(), 8),
+                  y0 = e.offsetY - div(zoomInterval.y.length(), 8);
+
             ctx.putImageData(await imageData, 0, 0);
-
-            controls["x-start"].value = d.re * 0.85;
-            controls["x-end"].value   = d.re * 1.10;
-            controls["y-start"].value = d.im * 0.85;
-            controls["y-end"].value   = d.im * 1.10;
-
-            ctx.fillStyle = "#fff";
-
-            const x0 = e.offsetX - div(relSize.width, 6),
-                  y0 = e.offsetY - div(relSize.height, 6),
-                  x = div(relSize.width, 3),
-                  y = div(relSize.height, 3);
-
+            ctx.fillStyle   = "#fff";
+            ctx.strokeStyle = "#0F0";
             ctx.strokeRect(x0, y0, x, y);
 
             ctx.beginPath();
@@ -137,14 +152,23 @@ ready.then(async () => {
     });
 
     canvas.addEventListener('click', (e) => {
-        console.info(zoomInterval);
+        console.info(e.offsetX, e.offsetY);
+
         const point = new Point(e.offsetX, e.offsetY);
         const d = data_in_boundary(point, relSize, zoomInterval);
+        console.info(d);
 
-        console.info(d, zoomInterval);
+        console.info(zoomInterval);
+        zoomInterval = new Interval2D(
+            (zoomInterval.x.length() - d.re) / 4.0,
+            (zoomInterval.x.length() + d.re) / 4.0,
+            (zoomInterval.y.length() - d.im) / 4.0,
+            (zoomInterval.y.length() + d.im) / 4.0
+        );
+        console.info(zoomInterval);
 
         window.requestAnimationFrame(() => {
-            renderBrot(ctx, colors, zoomInterval, relSize);
+            imageData = renderBrot(ctx, colors, zoomInterval, relSize);
         });
     });
 
@@ -158,25 +182,23 @@ ready.then(async () => {
         controls["y-end"].value   =  "1.000";
     });
 
-    controlForm.addEventListener('submit', async (e) => {
+    controlForm.addEventListener('submit', (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        BIG = document.getElementById('big').checked;
-
-        //colors = await newColors();
+        BIG = document.getElementById('big').checked ?? false;
 
         zoomInterval = new Interval2D(
-            Math.fround(controls["x-start"].value) ?? -2.0,
-            Math.fround(controls["x-end"].value)   ??  1.0,
-            Math.fround(controls["y-start"].value) ?? -1.0,
-            Math.fround(controls["y-end"].value)   ??  1.0,
+            Math.fround(controls["x-start"].value).toFixed(3) ?? -2.0,
+            Math.fround(controls["x-end"].value).toFixed(3)   ??  1.0,
+            Math.fround(controls["y-start"].value).toFixed(3) ?? -1.0,
+            Math.fround(controls["y-end"].value).toFixed(3)   ??  1.0,
             BIG
         );
 
-        await renderBrot(ctx, colors, zoomInterval, relSize);
-
-        return false;
+        window.requestAnimationFrame(() => {
+            imageData = renderBrot(ctx, colors, zoomInterval, relSize);
+        });
     });
 
     if (debug && window.console && window.console.profile) {

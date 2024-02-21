@@ -144,6 +144,14 @@ class Interval extends Biggable {
             this.end   = e;
         }
     }
+
+    length() {
+        if(this._big) {
+            return this.end.minus(this.start);
+        }
+
+        return this.end - this.start;
+    }
 }
 
 export class Interval2D extends Biggable {
@@ -157,4 +165,6 @@ export class Interval2D extends Biggable {
         this.x = new Interval(x1, x2, big);
         this.y = new Interval(y1, y2, big);
     }
+
+
 }

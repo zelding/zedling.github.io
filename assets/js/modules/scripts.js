@@ -36,17 +36,17 @@ export const data_to_canvas = (i, w) => {
 export const data_in_boundary = (point, size, interval) => {
     if (interval.isBig()) {
         const re = interval.x.start.plus(
-            interval.x.end.minus(interval.x.start).dividedBy(size.width).times(point.x)
+            interval.x.length().dividedBy(size.width).times(point.x)
         );
         const im = interval.y.start.plus(
-            interval.y.end.minus(interval.y.start).dividedBy(size.height).times(point.y)
+            interval.y.length().dividedBy(size.height).times(point.y)
         );
 
         return new C(re, im.times(-1), true);
     }
 
-    const re = interval.x.start + ( (interval.x.end - interval.x.start) / size.width )  * (point.x)
-    const im = interval.y.start + ( (interval.y.end - interval.y.start) / size.height ) * (point.y)
+    const re = point.x * (interval.x.length() / size.width ) + interval.x.start;
+    const im = point.y * (interval.y.length() / size.height) + interval.y.start;
 
     return new C(re, -im, false);
 };
